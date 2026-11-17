@@ -9,3 +9,8 @@ site/.tmp/
 /assets/
 /img/
 /respaldos/
+
+# Estado local de Cloudflare/wrangler y secretos locales
+.wrangler/
+.dev.vars
+node_modules/

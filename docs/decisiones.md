@@ -122,7 +122,7 @@ Teléfono/WhatsApp reales · correo · URLs de LinkedIn e Instagram · dominio �
 Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y los verificadores actualizados.
 
 ## Cuentas (regla de Milton, 2026-11-16)
-- **Todo se sube a la cuenta de GitHub `miltondavila-ux`** y al Cloudflare de «correo privado de la cuenta». No tiene nada que ver con `10minuteswebsite` ni con otras cuentas.
+- **Todo se sube a la cuenta de GitHub `miltondavila-ux`** y a la cuenta de Cloudflare de Milton (ID `c94a480fa2021e0aa93ca267d04bd8f1`). No tiene nada que ver con `10minuteswebsite` ni con otras cuentas.
 - Al usar `gh`: `GH_TOKEN="$(gh auth token --user miltondavila-ux)"` y comprobar que `gh api user --jq .login` sea `miltondavila-ux`; no cambiar la cuenta activa global.
 - En Cloudflare, al conectar GitHub, enlazar `miltondavila-ux`; **nunca** elegir `10minuteswebsite` en el selector.
 
@@ -131,9 +131,9 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 - Diseño: azul noche, serif Newsreader, foto en blanco y negro de la propia página, titular de la página, nombre y dominio. El verificador exige 1200×630, < 600 KB, idioma correcto, `og:image:alt` y `twitter:image:alt`.
 
 ## Despliegue (hecho 2026-11-16)
-- **Vista previa en línea (staging, noindex):** https://joseantonioborges-web.magiapura.workers.dev/ — Worker `joseantonioborges-web` en el Cloudflare de «correo privado de la cuenta» (cuenta `c94a480fa2021e0aa93ca267d04bd8f1`).
+- **Vista previa en línea (staging, noindex):** https://joseantonioborges-web.magiapura.workers.dev/ — Worker `joseantonioborges-web` en la cuenta de Cloudflare de Milton (ID `c94a480fa2021e0aa93ca267d04bd8f1`).
 - **Cómo se publica:** `python3 tools/build.py --staging && npx wrangler@latest deploy`, con las credenciales **aisladas** de Milton: `XDG_CONFIG_HOME="/Users/miltondavila/Jose Antonio Borges/.cf-milton" CLOUDFLARE_ACCOUNT_ID=c94a480fa2021e0aa93ca267d04bd8f1`.
-- **⚠ El login por defecto de `wrangler` en esta Mac es de OTRA cuenta («correo privado de la cuenta»).** Nunca desplegar sin las variables de arriba. Antes de publicar, comprobar con `wrangler whoami` que el correo sea «correo privado de la cuenta».
+- **⚠ El login por defecto de `wrangler` en esta Mac es de OTRA cuenta (la de `10minuteswebsite`, ID `99a41fca77e1459354e6fe519a9ff042`).** Nunca desplegar sin las variables de arriba. Antes de publicar, comprobar con `wrangler whoami` que el correo sea «correo privado de la cuenta».
 - La carpeta `.cf-milton` está fuera del repositorio (no se sube nunca).
 - Pendiente para producción: dominio `joseantonioborges.com` en esa cuenta de Cloudflare, `python3 tools/build.py` (sin `--staging`), datos reales y revisión legal.
 
