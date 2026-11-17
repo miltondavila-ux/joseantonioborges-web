@@ -105,3 +105,10 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 ## Imágenes Open Graph (2026-11-16)
 - 8 imágenes de 1200×630 (Home, Sobre mí, Trayectoria, Contacto × ES/EN) en `site/assets/og/og-<página>-<idioma>.jpg`, generadas con `python3 tools/og.py` (Chrome headless). Cada página usa la suya; las legales usan la del Home.
 - Diseño: azul noche, serif Newsreader, foto en blanco y negro de la propia página, titular de la página, nombre y dominio. El verificador exige 1200×630, < 600 KB, idioma correcto, `og:image:alt` y `twitter:image:alt`.
+
+## Despliegue (hecho 2026-11-16)
+- **Vista previa en línea (staging, noindex):** https://joseantonioborges-web.magiapura.workers.dev/ — Worker `joseantonioborges-web` en el Cloudflare de «correo privado de la cuenta» (cuenta `c94a480fa2021e0aa93ca267d04bd8f1`).
+- **Cómo se publica:** `python3 tools/build.py --staging && npx wrangler@latest deploy`, con las credenciales **aisladas** de Milton: `XDG_CONFIG_HOME="/Users/miltondavila/Jose Antonio Borges/.cf-milton" CLOUDFLARE_ACCOUNT_ID=c94a480fa2021e0aa93ca267d04bd8f1`.
+- **⚠ El login por defecto de `wrangler` en esta Mac es de OTRA cuenta («correo privado de la cuenta»).** Nunca desplegar sin las variables de arriba. Antes de publicar, comprobar con `wrangler whoami` que el correo sea «correo privado de la cuenta».
+- La carpeta `.cf-milton` está fuera del repositorio (no se sube nunca).
+- Pendiente para producción: dominio `joseantonioborges.com` en esa cuenta de Cloudflare, `python3 tools/build.py` (sin `--staging`), datos reales y revisión legal.

@@ -23,7 +23,14 @@ python3 tools/verificar-decisiones.py
 
 ## Publicación
 
-Cada `git push` a `main` publica `site/` en Cloudflare. Mientras el sitio tenga datos de ejemplo se publica en modo **staging** (`noindex`).
+Vista previa: https://joseantonioborges-web.magiapura.workers.dev/ (modo **staging**, `noindex`).
+
+```bash
+python3 tools/build.py --staging
+npx wrangler@latest deploy      # con la sesión de wrangler de la cuenta correcta de Cloudflare
+```
+
+Antes de desplegar comprueba con `npx wrangler whoami` que la cuenta sea la del propietario del proyecto.
 
 ## Pendiente antes de publicar con dominio
 
