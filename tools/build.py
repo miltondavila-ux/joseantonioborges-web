@@ -39,7 +39,7 @@ PAGES = {
 }
 NOINDEX = ("legal", "privacy", "terms", "cookies")            # borradores a la espera de datos del titular
 INDEXABLE = [k for k in PAGES if k not in NOINDEX]
-NAV = [("about", "Sobre mí", "About"), ("exp", "Trayectoria", "Experience"), ("contact", "Contacto", "Contact")]
+NAV = [("home", "Inicio", "Home"), ("about", "Sobre mí", "About"), ("exp", "Trayectoria", "Experience"), ("contact", "Contacto", "Contact")]
 OTHER = {"es": "en", "en": "es"}
 LOCALE = {"es": "es_ES", "en": "en_US"}
 
@@ -267,7 +267,7 @@ def abs_u(key, lang): return DOMAIN + PAGES[key][lang]
 
 def header(lang, key):
     items = [f'<a href="{u(k, lang)}"{" aria-current=\"page\"" if k == key else ""}>{t(lang, a, b)}</a>' for k, a, b in NAV]
-    items.insert(2, f'<a href="{BLOG_URL}" target="_blank" rel="noopener" class="blog-l">Blog<span class="sr"> ({t(lang, "se abre en una pestaña nueva", "opens in a new tab")})</span></a>')
+    items.insert(3, f'<a href="{BLOG_URL}" target="_blank" rel="noopener" class="blog-l">Blog<span class="sr"> ({t(lang, "se abre en una pestaña nueva", "opens in a new tab")})</span></a>')
     links = "".join(items)
     o = OTHER[lang]
     return (f'<header id="hd"><div class="wrap nav"><a class="logo" href="{u("home", lang)}" aria-label="{NAME}, {t(lang, "inicio", "home")}">{NAME}</a>'
@@ -346,10 +346,17 @@ def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es"):
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{DOMAIN}/assets/{og}.jpg">
 <meta name="twitter:image:alt" content="{esc(OG_ALT.get(key, OG_ALT["home"])[0 if lang == "es" else 1])}">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/icons/icon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
+<meta name="application-name" content="{NAME}">
+<meta name="apple-mobile-web-app-title" content="JA Borges">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {pre}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap">
@@ -383,7 +390,7 @@ def home(lang):
   {picture("controlas", lang, "100vw", eager=True)}
   <div class="wrap">
     <p class="eyebrow">{L("Ejecutivo · Emprendedor · Real Estate", "Business Leader · Entrepreneur · Real Estate Executive")}</p>
-    <h1 class="display"><span class="sr">{NAME}. </span>{L("Construir.<em>Escalar. Transformar.</em>", "Build.<em>Scale. Transform.</em>")}</h1>
+    <h1 class="display"><span class="sr">{NAME}. </span>{L("Construir. <em>Escalar. Transformar.</em>", "Build. <em>Scale. Transform.</em>")}</h1>
     <p class="sub">{L("Para quienes dirigen agencias y equipos inmobiliarios: cómo crecer con orden, sin perder el control ni la autonomía de las personas.", "For those who run real estate agencies and teams: how to grow in an orderly way, without losing control or people’s autonomy.")}</p>
     <div class="cta">{contact_btn(lang, "Conversemos", "Let's talk", "btn", L("Hola José Antonio, me gustaría conversar contigo.", "Hello José Antonio, I'd like to have a conversation with you."))}<a class="ulink" href="{u("exp", lang)}">{L("Conoce mi trayectoria", "Explore my experience")}</a></div>
   </div>
@@ -614,10 +621,11 @@ Sitio oficial bilingüe (español e inglés). Cada página tiene su equivalente 
 
 ## Problemas en los que puede aportar / Problems he can help with
 """ + "\n".join(f"- {a} / {b}" for a, b in TOPICS) + f"""
+
 Contacto para entrevistas, podcasts, eventos y colaboraciones: {abs_u('contact', 'es')} / Contact for interviews, podcasts, events and collaborations: {abs_u('contact', 'en')}.
 
 ## Blog
-- [Blog / Blog]({BLOG_URL}): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)
+- [Blog]({BLOG_URL}): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)
 
 ## Optional
 - [llms-full.txt]({DOMAIN}/llms-full.txt): contenido completo del sitio en texto / full site content in plain text.
@@ -625,15 +633,16 @@ Contacto para entrevistas, podcasts, eventos y colaboraciones: {abs_u('contact',
     return s
 
 def llms_full():
-    s = f"# {NAME} — contenido completo / full content\n\nFuente: {DOMAIN}\n"
+    s = f"# {NAME} — contenido completo / full content\n\nFuente / Source: {DOMAIN} · Actualizado / Updated: {LASTMOD}\n"
     for lang in ("es", "en"):
         L = lambda es, en: t(lang, es, en)
         s += f"\n\n# {'ESPAÑOL' if lang == 'es' else 'ENGLISH'}\n\n## {L('Sobre mí', 'About')} ({abs_u('about', lang)})\n\n"
         s += "\n\n".join(clean(L(a, b)) for a, b in BIO)
         s += f"\n\n## {L('Trayectoria', 'Experience')} ({abs_u('exp', lang)})\n"
         for i, comp, role, hd, paras, hl in EXP:
-            s += f"\n### {clean(comp)} — {clean(L(*role))}\n{clean(L(*hd))}\n\n" + "\n\n".join(clean(L(a, b)) for a, b in paras) + "\n"
+            s += f"\n### {clean(comp)} — {clean(L(*role))}\n{clean(L(*hd))}\n\n" + "\n\n".join(clean(L(a, b)) for a, b in paras) + f"\n\n{L('Útil si', 'Useful if')} {clean(L(*USEFUL[i]))}\n"
         s += f"\n## {L('Áreas de conocimiento', 'Expertise')}\n" + "\n".join(f"- {clean(L(a, b))}: {clean(L(c, d))}" for a, b, c, d in AREAS)
+        s += f"\n\n## {L('¿Para quién es útil conversar?', 'Who is it useful to talk with?')}\n" + "\n".join(f"- {clean(L(a, b))}: {clean(L(c, d))}" for a, b, c, d, e, f in AUDIENCES)
         s += f"\n\n## {L('Problemas en los que puede aportar', 'Problems he can help with')}\n" + "\n".join(f"- {L(a, b)}" for a, b in TOPICS)
         s += f"\n\n## {L('Preguntas frecuentes', 'FAQ')}\n" + "\n\n".join(f"**{clean(L(a, b))}**\n{clean(L(c, d))}" for a, b, c, d in FAQ)
         s += f"\n\n## {L('Contacto', 'Contact')} ({abs_u('contact', lang)})\n" + L("Contacto mediante la página de contacto: llamada, SMS, WhatsApp o email.", "Contact via the contact page: call, SMS, WhatsApp or email.") + "\n"
@@ -714,9 +723,16 @@ def main():
 '''))
     write("/robots.txt", robots()); write("/sitemap.xml", sitemap()); write("/llms.txt", llms()); write("/llms-full.txt", llms_full())
     write("/_headers", HEADERS); write("/_redirects", "/  /es/  302\n")
-    write("/favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#0E1626"/><text x="32" y="44" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#F4F0E8">JB</text></svg>\n')
-    man = {"name": NAME, "short_name": NAME, "start_url": "/es/", "display": "standalone", "background_color": "#0E1626", "theme_color": "#0E1626", "lang": "es"}
-    if icons_ok: man["icons"] = [{"src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]
+    # favicon.svg, favicon.ico y los íconos de app los genera tools/icons.py
+    man = {"id": "/es/", "name": NAME, "short_name": "JA Borges",
+           "description": "José Antonio Borges: ejecutivo y emprendedor del sector inmobiliario. Entrevistas, alianzas y conversaciones.",
+           "start_url": "/es/", "scope": "/", "display": "standalone", "orientation": "any", "lang": "es", "dir": "ltr",
+           "background_color": "#0E1626", "theme_color": "#0E1626", "categories": ["business", "news"],
+           "icons": [{"src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+                     {"src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+                     {"src": "/assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
+           "shortcuts": [{"name": "Contacto", "short_name": "Contacto", "url": "/es/contacto/", "icons": [{"src": "/assets/icons/icon-192.png", "sizes": "192x192"}]},
+                         {"name": "Trayectoria", "short_name": "Trayectoria", "url": "/es/trayectoria/", "icons": [{"src": "/assets/icons/icon-192.png", "sizes": "192x192"}]}]}
     write("/manifest.webmanifest", json.dumps(man, ensure_ascii=False, indent=1))
     print("OK", "(STAGING)" if STAGING else "(producción)")
 

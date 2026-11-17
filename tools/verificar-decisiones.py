@@ -51,8 +51,9 @@ for lang, pages in PAGES.items():
     for pg in pages:
         h = rd(pg + "index.html")
         navl = re.findall(r'<nav class="links".*?</nav>', h, re.S)[0]
-        ok(len(re.findall(r"<a ", navl)) == 5, f"{pg}: el menú debe tener Sobre mí, Trayectoria, Blog, Contacto + idioma")
-        ok('href="https://blog.joseantonioborges.com" target="_blank" rel="noopener"' in navl and re.findall(r"<a [^>]*>(.*?)</a>", navl, re.S)[2].startswith("Blog"), f"{pg}: el menú debe tener BLOG en 3.ª posición, apuntando a https://blog.joseantonioborges.com (pestaña nueva)")
+        ok(len(re.findall(r"<a ", navl)) == 6, f"{pg}: el menú debe tener Inicio, Sobre mí, Trayectoria, Blog, Contacto + idioma")
+        ok('href="https://blog.joseantonioborges.com" target="_blank" rel="noopener"' in navl and re.findall(r"<a [^>]*>(.*?)</a>", navl, re.S)[3].startswith("Blog"), f"{pg}: el menú debe tener BLOG en 4.ª posición, apuntando a https://blog.joseantonioborges.com (pestaña nueva)")
+        ok(re.findall(r'<a href="([^"]*)"', navl)[0] == pages[0], f"{pg}: el primer enlace del menú debe ser Inicio/Home ({pages[0]})")
         ok(f'href="{pages[1]}"' in navl, f"{pg}: el menú no enlaza a Sobre mí/About")
         foot = re.search(r"<footer>.*?</footer>", h, re.S).group(0)
         ok(not re.search(r'<a [^>]*(linkedin|instagram)', foot, re.I), f"{pg}: los logos de redes NO deben ser enlaces")

@@ -32,10 +32,11 @@ Sitio oficial bilingüe (español e inglés). Cada página tiene su equivalente 
 - Estoy pensando en vender mi negocio o integrarlo en otro. / I'm thinking of selling my business or merging it into another.
 - Quiero mirar mi negocio con ojos de inversor. / I want to look at my business through an investor's eyes.
 - Quiero usar IA en mi operación, pero no sé por dónde empezar. / I want to use AI in my operation, but I don't know where to start.
+
 Contacto para entrevistas, podcasts, eventos y colaboraciones: https://joseantonioborges.com/es/contacto/ / Contact for interviews, podcasts, events and collaborations: https://joseantonioborges.com/en/contact/.
 
 ## Blog
-- [Blog / Blog](https://blog.joseantonioborges.com): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)
+- [Blog](https://blog.joseantonioborges.com): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)
 
 ## Optional
 - [llms-full.txt](https://joseantonioborges.com/llms-full.txt): contenido completo del sitio en texto / full site content in plain text.

@@ -78,7 +78,7 @@ Teléfono/WhatsApp reales · correo · URLs de LinkedIn e Instagram · dominio �
 - **El blog NO se hace en este sitio**: existirá en otro lugar. La página «Ideas» no existe aquí (ni en sitemap, Home ni About).
 - Las 3 fotos que estaban en esa sección del Home se conservan como franja visual («En escena», sin título).
 - Cuando exista el blog: enlazarlo desde el menú (nueva pestaña) con su URL real y volver a añadirlo a `llms.txt`.
-- **Menú vigente: Sobre mí · Trayectoria · BLOG · Contacto · ES/EN.** «BLOG» abre `https://blog.joseantonioborges.com` en pestaña nueva (sitio aparte, ocupa el lugar de «Ideas»).
+- **Menú vigente: Inicio · Sobre mí · Trayectoria · BLOG · Contacto · ES/EN.** «BLOG» abre `https://blog.joseantonioborges.com` en pestaña nueva (sitio aparte, ocupa el lugar de «Ideas»).
 - **Eliminado a pedido de Milton:** el bloque «Agenda una conversación / Calendario pendiente de configurar» del Home. (El canal AGENDAR del kit de contacto se mantiene.)
 - **Foto del 0–0:** la cámara la guarda con orientación EXIF 6; el generador de imágenes la aplica a los píxeles (`prepared()` en `build.py`).
 
@@ -112,3 +112,10 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 - **⚠ El login por defecto de `wrangler` en esta Mac es de OTRA cuenta («correo privado de la cuenta»).** Nunca desplegar sin las variables de arriba. Antes de publicar, comprobar con `wrangler whoami` que el correo sea «correo privado de la cuenta».
 - La carpeta `.cf-milton` está fuera del repositorio (no se sube nunca).
 - Pendiente para producción: dominio `joseantonioborges.com` en esa cuenta de Cloudflare, `python3 tools/build.py` (sin `--staging`), datos reales y revisión legal.
+
+## Menú (pedido de Milton, 2026-11-16)
+- **«Inicio / Home» es el primer enlace del menú** (además del logo). Orden final: Inicio · Sobre mí · Trayectoria · BLOG ↗ · Contacto · ES/EN.
+
+## Favicon e íconos de app (auditoría SEO READY)
+- Generados con `python3 tools/icons.py`: `favicon.svg`, `favicon.ico` (16/32/48) y `apple-touch-icon.png` (180) en la raíz; `icon-32/180/192/512` y `icon-maskable-512` (con margen de seguridad) en `assets/icons/`. Monograma «JB» con anillo, azul noche y papel hueso.
+- Manifest con `id`, `scope`, `short_name` «JA Borges», iconos `any` y `maskable` separados y accesos directos a Contacto y Trayectoria.

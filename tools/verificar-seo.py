@@ -202,6 +202,39 @@ for url in sorted(parsed):
         pass
     ok(len(re.findall(r'<span class="fl">.*?</span>', h, re.S)) == 1 and h.split('<span class="fl">')[1].split("</span>")[0].count("<a ") == 4, f"{url}: el pie debe enlazar a los 4 textos legales")
 
+# --- Favicon, íconos de app y manifest (instalación en móvil) ---
+import struct
+def png_size(path):
+    b = open(path, "rb").read(32); return struct.unpack(">II", b[16:24]) if b[:8] == b"\x89PNG\r\n\x1a\n" else (0, 0)
+ok(os.path.exists(ROOT + "/favicon.ico") and open(ROOT + "/favicon.ico", "rb").read(4) == b"\x00\x00\x01\x00", "falta /favicon.ico válido en la raíz")
+ico = open(ROOT + "/favicon.ico", "rb").read(); n_ico = struct.unpack("<H", ico[4:6])[0] if len(ico) > 6 else 0
+ok(n_ico >= 3, f"favicon.ico debe traer 16/32/48 px (trae {n_ico})")
+ok(os.path.exists(ROOT + "/favicon.svg") and "<svg" in open(ROOT + "/favicon.svg").read(), "falta favicon.svg")
+ok(png_size(ROOT + "/apple-touch-icon.png") == (180, 180), "apple-touch-icon.png en la raíz debe ser 180×180")
+for sz, nm in ((32, "icon-32"), (180, "icon-180"), (192, "icon-192"), (512, "icon-512"), (512, "icon-maskable-512")):
+    ok(png_size(ROOT + f"/assets/icons/{nm}.png") == (sz, sz), f"{nm}.png debe ser {sz}×{sz}")
+mf = json.load(open(ROOT + "/manifest.webmanifest", encoding="utf-8"))
+for k in ("id", "name", "short_name", "description", "start_url", "scope", "display", "theme_color", "background_color", "icons", "lang"): ok(k in mf, f"manifest: falta «{k}»")
+ok(len(mf.get("short_name", "")) <= 12, "manifest: short_name debe tener ≤ 12 caracteres para la pantalla de inicio")
+ok(mf.get("display") == "standalone" and mf.get("start_url", "").startswith("/es/"), "manifest: display standalone y start_url /es/")
+pur = {(i.get("sizes"), i.get("purpose")) for i in mf.get("icons", [])}
+ok(("192x192", "any") in pur and ("512x512", "any") in pur and ("512x512", "maskable") in pur, f"manifest: iconos 192 any, 512 any y 512 maskable ({pur})")
+for i in mf.get("icons", []): ok(os.path.exists(ROOT + i["src"]), f"manifest: no existe {i['src']}")
+for url in sorted(parsed):
+    h = open(pages[url], encoding="utf-8").read()
+    for frag in ('rel="icon" href="/favicon.ico"', 'rel="icon" href="/favicon.svg"', 'rel="apple-touch-icon" href="/apple-touch-icon.png"', 'rel="manifest" href="/manifest.webmanifest"',
+                 'name="theme-color"', 'name="apple-mobile-web-app-title"', 'name="mobile-web-app-capable"', 'name="application-name"'):
+        ok(frag in h, f"{url}: falta en la cabecera {frag}")
+
+# --- H1 de cada página: uno solo, en su sitio y coherente con la página ---
+EXPECT_H1 = {"/es/": "José Antonio Borges", "/en/": "José Antonio Borges", "/es/sobre-mi/": "Sobre mí", "/en/about/": "About me", "/es/trayectoria/": "Trayectoria",
+             "/en/experience/": "Experience", "/es/contacto/": "Conectemos", "/en/contact/": "connect", "/es/aviso-legal/": "Aviso legal", "/en/legal-notice/": "Legal notice",
+             "/es/privacidad/": "privacidad", "/en/privacy/": "Privacy", "/es/terminos-y-condiciones/": "Términos", "/en/terms-and-conditions/": "Terms", "/es/cookies/": "cookies", "/en/cookies/": "Cookie"}
+for url, kw in EXPECT_H1.items():
+    h1s = [h[1] for h in parsed[url].h if h[0] == "h1"]
+    ok(len(h1s) == 1 and kw.lower() in h1s[0].lower(), f"{url}: el H1 debe ser único y contener «{kw}» (es {h1s})")
+    ok(len(parsed[url].h) > 0 and parsed[url].h[0][0] == "h1", f"{url}: el H1 debe ser el primer encabezado")
+
 print(f"{oks} comprobaciones correctas · {len(fails)} fallos")
 for f in fails: print(" ✗", f)
 sys.exit(1 if fails else 0)
