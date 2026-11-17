@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://joseantonioborges.com/es/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/en/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/es/sobre-mi/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/sobre-mi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/sobre-mi/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/en/about/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/sobre-mi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/sobre-mi/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/es/trayectoria/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/trayectoria/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/trayectoria/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/en/experience/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/trayectoria/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/experience/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/trayectoria/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/es/contacto/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/contacto/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://joseantonioborges.com/en/contact/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/contacto/"/>
+    <priority>0.8</priority>
+  </url>
+</urlset>

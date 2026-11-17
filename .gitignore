@@ -1,0 +1,11 @@
+# Archivos del sistema y temporales
+.DS_Store
+__pycache__/
+*.pyc
+site/.tmp/
+
+# Maqueta antigua y respaldos locales (viven solo en el Mac; Git ya es el historial)
+/*.html
+/assets/
+/img/
+/respaldos/

@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers con archivos estáticos: sirve la carpeta ./site ya generada (sin paso de compilación).
+  "name": "joseantonioborges-web",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}
