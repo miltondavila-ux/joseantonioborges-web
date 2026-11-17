@@ -87,3 +87,12 @@ Teléfono/WhatsApp reales · correo · URLs de LinkedIn e Instagram · dominio �
 - Reparto actual — Home: hero `controlas` · Enfoque `hero` (exp-34) · Resultados `lidera` («Lidérate a ti primero») · ¿Qué estás intentando resolver? `cero` (0–0, IMG_8511) · Trayectoria `country` («Country Leader, Spain») · Disciplina `cierre` · Contacto `audiencia` (fondo). About: `barcelona` (eXpcon Barcelona).
 - No usadas a propósito: `JA-00 (6)` y `JA-00 (2)` (misma escena que otras), `portada1…940` (duplicado exacto) y la foto de grupo `ig_…` (terceros, diluye la marca individual).
 - Si se añade una foto nueva, debe ser de otra escena. El verificador lo comprueba.
+
+## SIGUIENTE TAREA PEDIDA (anotada 2026-11-16, ejecutar después del despliegue)
+**Triple auditoría de «SEO READY»** del sitio (en vivo y en el código):
+1. **H1:** uno solo por página, en su sitio, en las 8 páginas indexables (ES y EN) y coherente con el título.
+2. **Archivo LLM:** `llms.txt` y `llms-full.txt` completos, con enlaces válidos y datos exactos.
+3. **Imágenes OG:** 1200×630 por página (hoy solo hay `og-home` y `og-about`; revisar que cada página tenga la suya, con `og:image:alt`, y que Contacto/Trayectoria no compartan una imagen que no les corresponde).
+4. **Íconos para instalar como app en el móvil:** manifest, `apple-touch-icon` (iPhone), íconos 192/512 y *maskable* (Android), `theme-color`, nombre de la app. Probar «Añadir a pantalla de inicio».
+5. **Favicon:** SVG + PNG 32 + `.ico` en la raíz; que se vea bien en pestañas claras y oscuras.
+Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y los verificadores actualizados.
