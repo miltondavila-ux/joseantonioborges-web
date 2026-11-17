@@ -101,3 +101,7 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 - **Todo se sube a la cuenta de GitHub `miltondavila-ux`** y al Cloudflare de «correo privado de la cuenta». No tiene nada que ver con `10minuteswebsite` ni con otras cuentas.
 - Al usar `gh`: `GH_TOKEN="$(gh auth token --user miltondavila-ux)"` y comprobar que `gh api user --jq .login` sea `miltondavila-ux`; no cambiar la cuenta activa global.
 - En Cloudflare, al conectar GitHub, enlazar `miltondavila-ux`; **nunca** elegir `10minuteswebsite` en el selector.
+
+## Imágenes Open Graph (2026-11-16)
+- 8 imágenes de 1200×630 (Home, Sobre mí, Trayectoria, Contacto × ES/EN) en `site/assets/og/og-<página>-<idioma>.jpg`, generadas con `python3 tools/og.py` (Chrome headless). Cada página usa la suya; las legales usan la del Home.
+- Diseño: azul noche, serif Newsreader, foto en blanco y negro de la propia página, titular de la página, nombre y dominio. El verificador exige 1200×630, < 600 KB, idioma correcto, `og:image:alt` y `twitter:image:alt`.

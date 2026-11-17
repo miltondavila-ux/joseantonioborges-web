@@ -21,6 +21,12 @@ BLOG_URL = "https://blog.joseantonioborges.com"   # el blog vive FUERA de este s
 LINKEDIN = ""    # PENDIENTE: URL real. Si se rellena, se añade a sameAs y al pie
 INSTAGRAM = ""   # PENDIENTE: URL real
 
+OG_ALT = {
+ "home": ("Construir. Escalar. Transformar. José Antonio Borges, ejecutivo y emprendedor del sector inmobiliario, en el escenario", "Build. Scale. Transform. José Antonio Borges, executive and real estate entrepreneur, on stage"),
+ "about": ("Sobre mí: José Antonio Borges, ejecutivo y emprendedor del sector inmobiliario, en el escenario de eXpcon Barcelona", "About: José Antonio Borges, executive and real estate entrepreneur, on the eXpcon Barcelona stage"),
+ "exp": ("Trayectoria: del desafío al resultado. eXp Realty España, Hauzz, Tiko y Private Equity", "Experience: from challenge to outcome. eXp Realty Spain, Hauzz, Tiko and Private Equity"),
+ "contact": ("Contacto: conversemos. Entrevistas, alianzas, negocios e inversión con José Antonio Borges", "Contact: let’s talk. Interviews, partnerships, business and investment with José Antonio Borges"),
+}
 PAGES = {
     "home":    {"es": "/es/", "en": "/en/"},
     "about":   {"es": "/es/sobre-mi/", "en": "/en/about/"},
@@ -281,7 +287,7 @@ def person(lang):
          "jobTitle": "Country Leader / Managing Director, eXp Realty España" if lang == "es" else "Country Leader / Managing Director, eXp Realty Spain",
          "description": t(lang, "Ejecutivo y emprendedor con trayectoria internacional en inversión, creación de empresas y liderazgo, especializado en el sector inmobiliario.",
                          "Executive and entrepreneur with an international background in investment, company building and business leadership, focused on real estate."),
-         "image": DOMAIN + "/assets/og/og-about.jpg",
+         "image": DOMAIN + f"/assets/og/og-about-{lang}.jpg",
          "worksFor": {"@type": "Organization", "name": t(lang, "eXp Realty España", "eXp Realty Spain")},
          "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Miami"},
          "knowsAbout": [t(lang, a, b).replace("&amp;", "&") for a, b, _, _ in AREAS] if False else [re.sub("&amp;", "&", t(lang, a, b)) for a, b, _, _ in AREAS],
@@ -300,7 +306,7 @@ def crumbs(lang, key):
 def website(lang):
     return {"@type": "WebSite", "@id": DOMAIN + "/#web", "url": DOMAIN + "/", "name": NAME, "inLanguage": ["es", "en"], "publisher": {"@id": DOMAIN + "/#persona"}}
 
-def page(key, lang, body, extra_ld, lcp=None, og="og-home"):
+def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es"):
     title, desc = META[key][lang]; o = OTHER[lang]
     url = abs_u(key, lang)
     ld = {"@context": "https://schema.org", "@graph": [website(lang), person(lang)] + extra_ld}
@@ -333,12 +339,13 @@ def page(key, lang, body, extra_ld, lcp=None, og="og-home"):
 <meta property="og:locale" content="{LOCALE[lang]}">
 <meta property="og:locale:alternate" content="{LOCALE[o]}">
 <meta property="og:image" content="{DOMAIN}/assets/{og}.jpg">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{esc(IMGS["controlas"][1 if lang == "es" else 2] if og == "og/og-home" else IMGS["hero"][1 if lang == "es" else 2])}">
+<meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{esc(OG_ALT.get(key, OG_ALT["home"])[0 if lang == "es" else 1])}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{esc(title)}">
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{DOMAIN}/assets/{og}.jpg">
+<meta name="twitter:image:alt" content="{esc(OG_ALT.get(key, OG_ALT["home"])[0 if lang == "es" else 1])}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/icons/icon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/icons/icon-180.png">
@@ -690,7 +697,7 @@ def main():
         for lang in ("es", "en"):
             body, ld = BUILDERS[key](lang)
             lcp = ("controlas", "100vw") if key == "home" else (("barcelona", "(max-width: 860px) 90vw, 420px") if key == "about" else None)
-            og = "og/og-about" if key == "about" else "og/og-home"
+            og = f"og/og-{key}-{lang}" if key in OG_ALT else f"og/og-home-{lang}"
             write(PAGES[key][lang] + "index.html", bust(page(key, lang, body, ld, lcp, og)))
     write("/index.html", f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{NAME}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="{'noindex' if STAGING else 'noindex, follow'}">

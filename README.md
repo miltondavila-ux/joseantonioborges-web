@@ -5,6 +5,7 @@ Sitio web personal bilingüe (ES/EN) de José Antonio Borges. Sitio estático, s
 - `site/` — el sitio **ya generado**. Es lo que se publica (Cloudflare Workers sirve esta carpeta tal cual).
 - `tools/build.py` — generador (Python 3). Crea `site/` a partir del contenido y de las fotos originales.
 - `tools/verificar-seo.py` y `tools/verificar-decisiones.py` — verificadores. Deben terminar en **0 fallos**.
+- `tools/og.py` — genera las 8 imágenes Open Graph (1200×630) con Google Chrome headless.
 - `tools/dev-server.py` — servidor local con recarga automática (`http://localhost:8766/es/`).
 - `docs/decisiones.md` — decisiones aprobadas del proyecto.
 - `wrangler.jsonc` — configuración de Cloudflare Workers (carpeta `./site`).

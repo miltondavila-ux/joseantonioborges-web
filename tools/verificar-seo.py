@@ -60,6 +60,7 @@ real = [p for p in allp if p not in LEGAL]
 ok(all(l in pages for l in LEGAL), "faltan las páginas legales")
 ok(len(real) == 8, f"Se esperaban 8 páginas (4 × 2 idiomas, sin blog en este sitio); hay {len(real)}")
 titles, descs = {}, {}
+ogs = {}
 parsed = {}
 for url in sorted(allp):
     src = open(pages[url], encoding="utf-8").read(); p = P(); p.feed(src); parsed[url] = p
@@ -91,6 +92,19 @@ for url in sorted(allp):
     ok(p.metas.get("og:url") == DOMAIN + url, f"{n}: og:url no coincide")
     ogimg = p.metas.get("og:image", "").replace(DOMAIN, "")
     ok(os.path.exists(ROOT + ogimg), f"{n}: og:image no existe ({ogimg})")
+    if os.path.exists(ROOT + ogimg):
+        b = open(ROOT + ogimg, "rb").read(); i = 2; w_ = h_ = 0
+        while i < len(b):
+            if b[i] != 0xFF: break
+            mk = b[i + 1]; ln = int.from_bytes(b[i + 2:i + 4], "big")
+            if mk in (0xC0, 0xC2): h_ = int.from_bytes(b[i + 5:i + 7], "big"); w_ = int.from_bytes(b[i + 7:i + 9], "big"); break
+            i += 2 + ln
+        ok((w_, h_) == (1200, 630), f"{n}: la imagen OG debe ser 1200×630 (es {w_}×{h_})")
+        ok(len(b) < 600000, f"{n}: la imagen OG pesa demasiado ({len(b)//1024} KB)")
+        ok(f"-{lang}.jpg" in ogimg or url in LEGAL, f"{n}: la OG debe ser del idioma de la página ({ogimg})")
+        if url not in LEGAL: ogs.setdefault(ogimg, []).append(url)
+    ok(bool(p.metas.get("og:image:alt")) and bool(p.metas.get("twitter:image:alt")), f"{n}: faltan og:image:alt / twitter:image:alt")
+    ok(p.metas.get("twitter:image") == p.metas.get("og:image"), f"{n}: twitter:image distinta de og:image")
     # imágenes
     for im in p.imgs:
         ok(bool(im.get("alt")), f"{n}: <img> sin alt {im.get('src')}")
@@ -122,6 +136,7 @@ for url in sorted(allp):
     ok(not any(s.get("src", "").startswith("http") for s in p.scripts), f"{n}: script externo")
     ok(len(src) < 90000, f"{n}: HTML demasiado pesado ({len(src)} bytes)")
 
+for o_, ps in ogs.items(): ok(len(ps) == 1, f"la misma imagen OG {o_} se usa en varias páginas: {ps}")
 for t, ps in titles.items(): ok(len(ps) == 1, f"title duplicado '{t}' en {ps}")
 for d, ps in descs.items(): ok(len(ps) == 1, f"meta description duplicada en {ps}")
 
