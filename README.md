@@ -7,6 +7,8 @@ Sitio web personal bilingüe (ES/EN) de José Antonio Borges. Sitio estático, s
 - `tools/verificar-seo.py` y `tools/verificar-decisiones.py` — verificadores. Deben terminar en **0 fallos**.
 - `tools/og.py` — genera las 8 imágenes Open Graph (1200×630) con Google Chrome headless.
 - `tools/dev-server.py` — servidor local con recarga automática (`http://localhost:8766/es/`).
+- `src/worker.js` — Cloudflare Worker: sirve `site/` y recibe el formulario de contacto (`/api/contact`).
+- `content/ideas/` — artículos de Ideas/Insights en Markdown (ver su README).
 - `docs/decisiones.md` — decisiones aprobadas del proyecto.
 - `wrangler.jsonc` — configuración de Cloudflare Workers (carpeta `./site`).
 

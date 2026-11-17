@@ -4,6 +4,16 @@
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce) d.classList.add('js');
   function init() {
+  /* filtro simple por categoría en Ideas */
+  var chips = document.querySelectorAll('.chip[data-cat]');
+  if (chips.length) chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var k = c.getAttribute('data-cat');
+      chips.forEach(function (x) { x.classList.toggle('on', x === c); });
+      document.querySelectorAll('.artlist li').forEach(function (li) { li.hidden = !(k === 'all' || li.getAttribute('data-cat') === k); });
+    });
+  });
+
     var hd = document.getElementById('hd');
     function sc() { if (hd) hd.classList.toggle('solid', scrollY > 80); }
     addEventListener('scroll', sc, { passive: true }); sc();

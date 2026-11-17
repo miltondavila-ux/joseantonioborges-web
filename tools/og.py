@@ -14,8 +14,8 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 # pagina -> (foto, estilo, posición del objeto, textos por idioma)
 PAGES = {
  "home": ("controlas-1600.jpg", "full", "62% 28%", {
-    "es": ("EJECUTIVO · EMPRENDEDOR · REAL ESTATE", "Construir.", "Escalar. Transformar.", "Cómo crecer con orden, sin perder el control ni la autonomía de las personas."),
-    "en": ("BUSINESS LEADER · ENTREPRENEUR · REAL ESTATE EXECUTIVE", "Build.", "Scale. Transform.", "How to grow in an orderly way, without losing control or people’s autonomy.")}),
+    "es": ("LÍDER EMPRESARIAL · EMPRENDEDOR · REAL ESTATE", "Construir.", "Escalar. Transformar.", "Ejecutivo y emprendedor del sector inmobiliario. Actualmente al frente de eXp Realty España."),
+    "en": ("BUSINESS LEADER · ENTREPRENEUR · REAL ESTATE EXECUTIVE", "Build.", "Scale. Transform.", "Executive and entrepreneur in real estate. Currently leading eXp Realty Spain.")}),
  "about": ("barcelona-1024.jpg", "panel", "43% 50%", {
     "es": ("SOBRE MÍ", "José Antonio", "Borges.", "Ejecutivo y emprendedor del sector inmobiliario."),
     "en": ("ABOUT", "José Antonio", "Borges.", "Executive and entrepreneur in real estate.")}),
@@ -23,8 +23,11 @@ PAGES = {
     "es": ("TRAYECTORIA", "Del desafío", "al resultado.", "eXp Realty España · Hauzz · Tiko · Private Equity"),
     "en": ("EXPERIENCE", "From challenge", "to outcome.", "eXp Realty Spain · Hauzz · Tiko · Private Equity")}),
  "contact": ("hero-1600.jpg", "full", "50% 31%", {
-    "es": ("CONTACTO", "Conversemos.", "", "Entrevistas · Alianzas · Negocios · Inversión"),
-    "en": ("CONTACT", "Let’s talk.", "", "Interviews · Partnerships · Business · Investment")}),
+    "es": ("CONTACTO", "Conectemos.", "", "Oportunidades · Alianzas · Proyectos · Inversión"),
+    "en": ("CONTACT", "Let’s connect.", "", "Opportunities · Partnerships · Projects · Investment")}),
+ "ideas": ("lidera-1600.jpg", "panel", "38% 45%", {
+    "es": ("IDEAS", "Ideas y", "perspectivas.", "Reflexiones desde la experiencia sobre liderazgo, real estate y negocios."),
+    "en": ("INSIGHTS", "Ideas &", "insights.", "Perspectives on leadership, real estate and business.")}),
 }
 
 HTML = """<!doctype html><html><head><meta charset="utf-8">
@@ -64,7 +67,7 @@ h1 em{display:block;font-style:italic;font-weight:300;color:#bcd0f2}
 
 def render(key, lang, tmp):
     photo, style, pos, tx = PAGES[key][0], PAGES[key][1], PAGES[key][2], PAGES[key][3][lang]
-    fs = {"home": 98, "about": 112, "exp": 112, "contact": 150}[key]
+    fs = {"home": 98, "about": 112, "exp": 112, "contact": 150, "ideas": 118}[key]
     h = (HTML.replace("%POS%", pos).replace("%STYLE%", style).replace("%PHOTO%", quote(os.path.join(FOTOS, photo[1:]) if photo.startswith("@") else os.path.join(IMG, photo))).replace("%FS%", str(fs))
          .replace("%EB%", tx[0]).replace("%H1%", tx[1]).replace("%H2%", tx[2]).replace("%SUB%", tx[3]))
     html = os.path.join(tmp, f"og-{key}-{lang}.html"); png = os.path.join(tmp, f"og-{key}-{lang}.png")

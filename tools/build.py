@@ -17,7 +17,6 @@ LASTMOD = "2026-11-16"
 UPDATED = {"es": "16 de noviembre de 2026", "en": "16 November 2026"}
 DEMO = True      # True = muestra el aviso "datos de ejemplo". Poner False al publicar con datos reales
 NAME = "José Antonio Borges"
-BLOG_URL = "https://blog.joseantonioborges.com"   # el blog vive FUERA de este sitio
 LINKEDIN = ""    # PENDIENTE: URL real. Si se rellena, se añade a sameAs y al pie
 INSTAGRAM = ""   # PENDIENTE: URL real
 
@@ -25,12 +24,14 @@ OG_ALT = {
  "home": ("Construir. Escalar. Transformar. José Antonio Borges, ejecutivo y emprendedor del sector inmobiliario, en el escenario", "Build. Scale. Transform. José Antonio Borges, executive and real estate entrepreneur, on stage"),
  "about": ("Sobre mí: José Antonio Borges, ejecutivo y emprendedor del sector inmobiliario, en el escenario de eXpcon Barcelona", "About: José Antonio Borges, executive and real estate entrepreneur, on the eXpcon Barcelona stage"),
  "exp": ("Trayectoria: del desafío al resultado. eXp Realty España, Hauzz, Tiko y Private Equity", "Experience: from challenge to outcome. eXp Realty Spain, Hauzz, Tiko and Private Equity"),
- "contact": ("Contacto: conversemos. Entrevistas, alianzas, negocios e inversión con José Antonio Borges", "Contact: let’s talk. Interviews, partnerships, business and investment with José Antonio Borges"),
+ "ideas": ("Ideas y perspectivas de José Antonio Borges sobre real estate, liderazgo, emprendimiento y estrategia", "Insights by José Antonio Borges on real estate, leadership, entrepreneurship and strategy"),
+ "contact": ("Contacto: oportunidades empresariales, alianzas, proyectos e inversiones con José Antonio Borges", "Contact: business opportunities, partnerships, projects and investments with José Antonio Borges"),
 }
 PAGES = {
     "home":    {"es": "/es/", "en": "/en/"},
     "about":   {"es": "/es/sobre-mi/", "en": "/en/about/"},
     "exp":     {"es": "/es/trayectoria/", "en": "/en/experience/"},
+    "ideas":   {"es": "/es/ideas/", "en": "/en/insights/"},
     "contact": {"es": "/es/contacto/", "en": "/en/contact/"},
     "legal":   {"es": "/es/aviso-legal/", "en": "/en/legal-notice/"},
     "privacy": {"es": "/es/privacidad/", "en": "/en/privacy/"},
@@ -39,17 +40,19 @@ PAGES = {
 }
 NOINDEX = ("legal", "privacy", "terms", "cookies")            # borradores a la espera de datos del titular
 INDEXABLE = [k for k in PAGES if k not in NOINDEX]
-NAV = [("home", "Inicio", "Home"), ("about", "Sobre mí", "About"), ("exp", "Trayectoria", "Experience"), ("contact", "Contacto", "Contact")]
+NAV = [("home", "Inicio", "Home"), ("about", "Sobre mí", "About"), ("exp", "Trayectoria", "Experience"), ("ideas", "Ideas", "Insights"), ("contact", "Contacto", "Contact")]
 OTHER = {"es": "en", "en": "es"}
 LOCALE = {"es": "es_ES", "en": "en_US"}
 
 META = {
- "home": {"es": ("José Antonio Borges | Liderazgo empresarial y real estate", "José Antonio Borges, líder de eXp Realty España: cómo hacer crecer una agencia inmobiliaria con sistemas, datos y autonomía. Entrevistas y conversaciones."),
-          "en": ("José Antonio Borges | Business Leadership & Real Estate", "José Antonio Borges, leader of eXp Realty Spain: how to grow a real estate business with systems, data and autonomy. Interviews and conversations.")},
+ "home": {"es": ("José Antonio Borges | Liderazgo empresarial y real estate", "Conoce la trayectoria de José Antonio Borges: emprendedor y ejecutivo especializado en crecimiento empresarial y real estate en España."),
+          "en": ("José Antonio Borges | Business Leadership & Real Estate", "Explore José Antonio Borges's background as an entrepreneur and executive focused on business growth, leadership and real estate in Spain.")},
  "about": {"es": ("Sobre mí | José Antonio Borges", "La historia de José Antonio Borges: de la inversión en Estados Unidos a fundar Hauzz y liderar compañías inmobiliarias en España."),
            "en": ("About | José Antonio Borges", "José Antonio Borges's journey from investment in the United States to founding Hauzz and leading real estate businesses in Spain.")},
  "exp": {"es": ("Trayectoria y resultados | José Antonio Borges", "Experiencia de José Antonio Borges en eXp Realty España, Hauzz, Rive, Tiko e inversiones en Estados Unidos."),
          "en": ("Experience & Results | José Antonio Borges", "José Antonio Borges's experience at eXp Realty Spain, Hauzz, Rive, Tiko and in US private equity.")},
+ "ideas": {"es": ("Ideas sobre real estate y negocios | José Antonio Borges", "Artículos y perspectivas sobre liderazgo inmobiliario, emprendimiento, operaciones, equipos y tecnología aplicada a los negocios."),
+           "en": ("Insights on Real Estate & Business | José Antonio Borges", "Perspectives on real estate leadership, entrepreneurship, strategy, operations, teams and the practical use of technology.")},
  "legal": {"es": ("Aviso legal | José Antonio Borges", "Aviso legal del sitio web de José Antonio Borges."), "en": ("Legal notice | José Antonio Borges", "Legal notice for José Antonio Borges's website.")},
  "privacy": {"es": ("Política de privacidad | José Antonio Borges", "Política de privacidad del sitio web de José Antonio Borges."), "en": ("Privacy policy | José Antonio Borges", "Privacy policy for José Antonio Borges's website.")},
  "terms": {"es": ("Términos y condiciones | José Antonio Borges", "Términos y condiciones de uso del sitio web de José Antonio Borges."), "en": ("Terms and conditions | José Antonio Borges", "Terms and conditions of use for José Antonio Borges's website.")},
@@ -153,18 +156,18 @@ BIO = [  # (es, en)
   "I'm José Antonio Borges, an executive and entrepreneur with an international background in investment, company building and business leadership, with a particular focus on real estate."),
  ("Actualmente lidero eXp Realty España. Junto con mi equipo hemos impulsado un crecimiento del 120 % de la facturación en 22 meses y una transformación de la operación basada en rentabilidad, procesos, sistemas y decisiones informadas por datos.",
   "I currently lead eXp Realty Spain. Together with my team, we have driven 120% revenue growth over 22 months and transformed the operation through a stronger focus on profitability, processes, systems and data-informed decision-making."),
- ("Comencé mi trayectoria profesional en Estados Unidos, dentro del mundo de la inversión y el private equity. Participé en el análisis y desarrollo de operaciones de adquisición y financiación, una experiencia que me enseñó a evaluar negocios desde sus fundamentos económicos.",
-  "My professional journey began in the United States, working in private equity and investment. I was involved in evaluating acquisitions and financing opportunities, an experience that taught me to look at businesses through the lens of their underlying economics."),
- ("En 2019 me trasladé con mi familia a España con el propósito de emprender. Exploré distintas oportunidades antes de fundar Hauzz, un negocio inmobiliario que llegó a reunir a cientos de agentes y que posteriormente fue adquirido por Rive.",
-  "In 2019, I moved to Spain with my family, determined to pursue entrepreneurship. After exploring different business opportunities, I founded Hauzz, a real estate business that grew to include hundreds of agents and was subsequently acquired by Rive."),
+ ("Comencé mi trayectoria profesional en Estados Unidos, dentro del mundo de la inversión y el private equity. Participé en el análisis y desarrollo de operaciones de adquisición y financiación, una experiencia que me enseñó a evaluar negocios desde sus fundamentos económicos. Más adelante trabajé en Pensam, en análisis de financiación y deuda.",
+  "My professional journey began in the United States, working in private equity and investment. I was involved in evaluating acquisitions and financing opportunities, an experience that taught me to look at businesses through the lens of their underlying economics. I later worked at Pensam, analysing financing and debt."),
+ ("En 2019 me trasladé a España para emprender y estar cerca de mi familia, sin una tesis inmobiliaria definida de antemano. Exploré distintas oportunidades y, más adelante, detecté una y fundé Hauzz, un negocio inmobiliario que llegó a reunir a cientos de agentes y que posteriormente fue adquirido por Rive.",
+  "In 2019, I moved to Spain to pursue entrepreneurship and be close to my family, without a real estate thesis defined in advance. I explored different opportunities and later spotted one and founded Hauzz, a real estate business that grew to include hundreds of agents and was subsequently acquired by Rive."),
  ("Después continué desarrollando operaciones y equipos en Rive, Tiko y eXp Realty. He trabajado tanto creando negocios desde cero como transformando organizaciones existentes, siempre con interés por la combinación de estrategia, ejecución y personas.",
   "I went on to develop operations and teams at Rive, Tiko and eXp Realty. I've had the opportunity to build businesses from the ground up as well as transform established organizations, always drawn to the intersection of strategy, execution and people."),
- ("Mi manera de trabajar también está influida por años dedicados al tenis de alto rendimiento y por mi formación en Matemáticas y Economía. Ambas experiencias me enseñaron que el progreso requiere preparación, disciplina, capacidad para aprender y voluntad de revisar las propias decisiones.",
-  "My approach to leadership was also shaped outside the business world. Years of high-performance tennis and a background in Mathematics and Economics taught me the importance of preparation, discipline, learning and the ability to question my own assumptions."),
+ ("Mi manera de afrontar los retos se formó mucho antes de dirigir empresas. De joven entrené tenis de alto rendimiento con la ambición de llegar a profesional; una lesión acabó cambiando ese camino. Más adelante, los estudios de Matemáticas y Economía reforzaron mi disciplina y mi manera analítica de entender los problemas. Son aprendizajes que sigo aplicando al liderazgo y a la construcción de negocios.",
+  "The way I approach challenges was shaped long before I ran companies. As a young person I trained in high-performance tennis with the ambition of turning professional; an injury ended up changing that path. Later, studying Mathematics and Economics reinforced my discipline and my analytical way of understanding problems. These are lessons I continue to apply to leadership and to building businesses."),
  ("Creo en organizaciones que miden lo importante, anticipan los problemas y permiten que las personas tengan autonomía para hacer bien su trabajo. Para mí, liderar es crear las condiciones en las que otros pueden crecer.",
   "I believe strong organizations measure what matters, identify problems early and give people the autonomy to do their best work. To me, leadership is about creating the conditions in which others can grow."),
 ]
-EXP = [  # id, empresa, cargo(es,en), titular(es,en), párrafos [(es,en)], destacados(es,en)|None
+EXP = [  # id, empresa, cargo(es,en), titular(es,en), párrafos [(es,en)], destacados(es,en)
  ("exp", "eXp Realty España", ("Country Leader / Managing Director", "Country Leader / Managing Director"),
   ("Crecimiento sostenible apoyado en sistemas, datos y talento.", "Sustainable growth powered by systems, data and people."),
   [("Al frente de eXp Realty España, y trabajando junto a un equipo comprometido, he impulsado una transformación enfocada en crecimiento, rentabilidad y disciplina operativa. En 22 meses el negocio incrementó su facturación un 120 % y alcanzó la rentabilidad durante 2026.",
@@ -173,38 +176,42 @@ EXP = [  # id, empresa, cargo(es,en), titular(es,en), párrafos [(es,en)], desta
     "Beyond the results, one of the most meaningful changes has been building stronger operating foundations: clear processes, management tools, regular performance measurement and the ability to anticipate issues. The goal is to scale without unnecessarily restricting agents' independence."),
    ("También hemos avanzado en la incorporación de equipos y agencias de mayor tamaño, ampliando las formas en que los profesionales inmobiliarios pueden desarrollar su negocio dentro de eXp.",
     "We have also expanded the business by attracting and integrating larger real estate teams and agencies.")],
-  ("+120 % de facturación en 22 meses · rentabilidad en 2026 · sistemas y métricas · integración de equipos y agencias", "+120% revenue growth in 22 months · profitability in 2026 · operational systems and KPIs · team and agency integration")),
+  ("+120 % de facturación en ~22 meses · rentabilidad en 2026 · sistemas y métricas · captación de equipos y agencias", "+120% revenue growth in ~22 months · profitability in 2026 · operational systems and KPIs · attracting teams and agencies")),
  ("hauzz", "Hauzz", ("Fundador y CEO", "Founder & CEO"),
   ("De una oportunidad de mercado a una compañía adquirida.", "From an opportunity to an acquired business."),
   [("Fundé Hauzz después de trasladarme a España en 2019 y explorar diversas oportunidades empresariales. Desarrollé una compañía inmobiliaria que llegó a contar con cientos de agentes y que posteriormente fue adquirida por Rive.",
     "I founded Hauzz after moving to Spain in 2019 and exploring several business opportunities. I built a real estate company that grew to hundreds of agents and was later acquired by Rive."),
    ("Esta etapa marcó mi experiencia como fundador: formar equipos, construir una propuesta de valor, tomar decisiones bajo incertidumbre y desarrollar una operación capaz de crecer.",
-    "It was a defining entrepreneurial experience: forming teams, developing a value proposition, making decisions under uncertainty and building an operation designed to grow.")], None),
+    "It was a defining entrepreneurial experience: forming teams, developing a value proposition, making decisions under uncertainty and building an operation designed to grow.")],
+  ("Fundador y CEO · red de cientos de agentes · vendida a Rive", "Founder & CEO · network of hundreds of agents · sold to Rive")),
  ("rive", "Rive / Kodit", ("Dirección del negocio de intermediación inmobiliaria", "Real Estate Brokerage Leadership"),
   ("Integración y crecimiento después de una adquisición.", "Integration and growth following an acquisition."),
   [("Tras la adquisición de Hauzz, me incorporé a Rive / Kodit para contribuir al desarrollo del negocio de intermediación inmobiliaria. Durante un período aproximado de 18 meses, el negocio prácticamente duplicó su facturación.",
     "After Rive acquired Hauzz, I joined the business to help develop its real estate brokerage operations. Over approximately 18 months, the business nearly doubled its revenue."),
    ("La experiencia combinó integración, crecimiento comercial, desarrollo de equipos y ejecución de una estrategia en una organización de mayor escala.",
-    "The experience brought together integration, commercial growth, team development and execution within a larger organization.")], None),
+    "The experience brought together integration, commercial growth, team development and execution within a larger organization.")],
+  ("Facturación casi duplicada en ~18 meses · integración y crecimiento comercial", "Revenue nearly doubled in ~18 months · integration and commercial growth")),
  ("tiko", "Tiko · España y Portugal", ("Head of Brokerage", "Head of Brokerage"),
   ("Construir una operación comercial desde cero.", "Building a commercial operation from the ground up."),
   [("Lideré la creación y expansión de la división de brokerage en España y Portugal. La operación pasó de una infraestructura inicial limitada a una estructura con CRM, herramientas, contratos, procesos y un equipo interno de gestión, desarrollando una red de aproximadamente 250 agentes.",
     "I led the creation and expansion of the brokerage division across Spain and Portugal. Starting with limited operating infrastructure, we implemented a CRM, systems, contracts, tools and processes, established an internal management team and developed a network of approximately 250 agents."),
    ("Fue una experiencia exigente de construcción operativa, escalabilidad comercial y coordinación de equipos en dos mercados.",
-    "This was a demanding experience in operational design, commercial scaling and cross-market team leadership.")], None),
- ("pe", "Private Equity · Estados Unidos", ("Senior Acquisitions Associate", "Senior Acquisitions Associate"),
+    "This was a demanding experience in operational design, commercial scaling and cross-market team leadership.")],
+  ("Estructura, equipo, CRM, contratos y procesos · red de ~250 agentes · España y Portugal", "Structure, team, CRM, contracts and processes · network of ~250 agents · Spain and Portugal")),
+ ("pe", "Private Equity y Pensam · Estados Unidos", ("Senior Acquisitions Associate", "Senior Acquisitions Associate"),
   ("Una base financiera para tomar decisiones empresariales.", "A financial foundation for business decisions."),
   [("Trabajé directamente con la dirección de una firma de private equity, participando en el análisis y los procesos de adquisición relacionados con un volumen agregado aproximado de US$250 millones en un año. Posteriormente profundicé en el análisis de financiación y deuda en Pensam.",
     "Working directly with the managing director of a private equity firm, I participated in the analysis and acquisition processes relating to approximately US$250 million in aggregate transaction volume over one year. I later expanded my experience in lending and structured debt analysis at Pensam."),
    ("Estas experiencias fortalecieron una forma de pensar centrada en la calidad de los activos, el riesgo, la economía de un negocio y la disciplina en la toma de decisiones.",
-    "These roles helped develop a way of thinking grounded in asset quality, risk, business economics and disciplined decision-making.")], None),
+    "These roles helped develop a way of thinking grounded in asset quality, risk, business economics and disciplined decision-making.")],
+  ("~US$250 M de volumen agregado en un año · Senior Acquisitions Associate · después, financiación y deuda en Pensam", "~US$250M aggregate volume in one year · Senior Acquisitions Associate · later, financing and debt at Pensam")),
 ]
-AREAS = [
- ("Liderazgo inmobiliario", "Real Estate Leadership", "Modelos de negocio, expansión e innovación en el real estate.", "Business models, expansion and innovation in real estate."),
- ("Emprendimiento y escalabilidad", "Entrepreneurship &amp; Scaling", "De una oportunidad a una operación que crece.", "Turning opportunities into growing organizations."),
- ("Estrategia y excelencia operativa", "Strategy &amp; Operational Excellence", "Procesos, rentabilidad, métricas y ejecución.", "Processes, profitability, metrics and execution."),
- ("Tecnología e inteligencia artificial", "Technology &amp; AI", "Aplicaciones prácticas para mejorar la operación y la experiencia del cliente.", "Practical ways technology can improve operations and customer experiences."),
- ("Equipos y liderazgo comercial", "Commercial Teams &amp; Leadership", "Cultura, talento, productividad y autonomía.", "Culture, talent, performance and autonomy."),
+AREAS = [  # experiencia e intereses profesionales (NO servicios contratables)
+ ("Real estate y liderazgo inmobiliario", "Real estate and real estate leadership", "Modelos de negocio, dirección, crecimiento y transformación del sector.", "Business models, management, growth and transformation of the sector."),
+ ("Emprendimiento y escalabilidad", "Entrepreneurship and scaling", "Creación de empresas, desarrollo de modelos de negocio y expansión.", "Company building, business model development and expansion."),
+ ("Estrategia y excelencia operativa", "Strategy and operational excellence", "Procesos, rentabilidad, sistemas de gestión y toma de decisiones basada en datos.", "Processes, profitability, management systems and data-driven decision-making."),
+ ("Tecnología, IA y transformación empresarial", "Technology, AI and business transformation", "Aplicación práctica de tecnología e inteligencia artificial desde la perspectiva de un ejecutivo.", "Practical application of technology and artificial intelligence from an executive's perspective."),
+ ("Liderazgo comercial y desarrollo de talento", "Commercial leadership and talent development", "Equipos, productividad, autonomía y crecimiento de redes comerciales.", "Teams, productivity, autonomy and growth of commercial networks."),
 ]
 FAQ = [
  ("¿Quién es José Antonio Borges?", "Who is José Antonio Borges?",
@@ -213,49 +220,23 @@ FAQ = [
  ("¿Qué empresa fundó José Antonio Borges?", "Which company did José Antonio Borges found?",
   "Fundó Hauzz, un negocio inmobiliario que llegó a reunir a cientos de agentes y que posteriormente fue adquirido por Rive.",
   "He founded Hauzz, a real estate business that grew to include hundreds of agents and was subsequently acquired by Rive."),
- ("¿Qué resultados ha logrado al frente de eXp Realty España?", "What results has he achieved at eXp Realty Spain?",
-  "Junto con su equipo, la facturación creció un 120 % en 22 meses, con una operación basada en rentabilidad, procesos, sistemas y decisiones informadas por datos.",
-  "Together with his team, revenue grew 120% over 22 months, with an operation built on profitability, processes, systems and data-informed decisions."),
  ("¿Dónde estudió José Antonio Borges?", "Where did José Antonio Borges study?",
   "Estudió Matemáticas y Economía y realizó estudios de posgrado en Matemáticas en la Universidad de Miami, donde también tuvo experiencia en docencia universitaria.",
   "He studied Mathematics and Economics and did postgraduate study in Mathematics at the University of Miami, where he also taught at university level."),
 ]
-ARTICLES = [  # categoría(es,en), título(es,en)
- (("Estrategia y operaciones", "Strategy &amp; Operations"), ("Crecer sin perder el control: por qué los sistemas importan más que las reglas", "Scaling Without Losing Control: Why Systems Matter More Than Rules")),
- (("Emprendimiento", "Entrepreneurship"), ("Qué aprendí construyendo una empresa inmobiliaria desde cero", "What Building a Real Estate Business from Scratch Taught Me")),
- (("Estrategia y operaciones", "Strategy &amp; Operations"), ("Los indicadores que ayudan a anticipar problemas en una organización comercial", "The Metrics That Help Commercial Organizations Spot Problems Early")),
- (("Real Estate", "Real Estate"), ("El futuro del agente inmobiliario: tecnología, especialización y relaciones humanas", "The Future of Real Estate Agents: Technology, Specialization and Human Relationships")),
- (("Liderazgo y equipos", "Leadership &amp; Teams"), ("Cada día empieza 0–0: liderar el proceso cuando no controlas el resultado", "Every Day Starts at 0–0: Leading the Process When You Can't Control the Outcome")),
+CATS = [  # clave, es, en  (categorías editoriales de Ideas)
+ ("real-estate", "Real Estate", "Real Estate"),
+ ("emprendimiento", "Emprendimiento", "Entrepreneurship"),
+ ("estrategia", "Estrategia y operaciones", "Strategy &amp; Operations"),
+ ("tecnologia", "Tecnología e IA", "Technology &amp; AI"),
+ ("liderazgo", "Liderazgo y equipos", "Leadership &amp; Teams"),
 ]
-CATS = [("Real Estate", "Real Estate"), ("Emprendimiento", "Entrepreneurship"), ("Estrategia y operaciones", "Strategy &amp; Operations"), ("Tecnología e IA", "Technology &amp; AI"), ("Liderazgo y equipos", "Leadership &amp; Teams")]
-TOPICS = [  # problemas que resuelve (cada uno sale de hechos del brief) -> es / en
- ("Mi agencia factura, pero no crece ni gana dinero como debería.", "My agency brings in revenue, but doesn't grow or earn the way it should."),
- ("Quiero crecer sin perder el control ni asfixiar a mi equipo con reglas.", "I want to grow without losing control or smothering my team with rules."),
- ("Necesito construir una red de agentes desde cero.", "I need to build an agent network from scratch."),
- ("Estoy pensando en vender mi negocio o integrarlo en otro.", "I'm thinking of selling my business or merging it into another."),
- ("Quiero mirar mi negocio con ojos de inversor.", "I want to look at my business through an investor's eyes."),
- ("Quiero usar IA en mi operación, pero no sé por dónde empezar.", "I want to use AI in my operation, but I don't know where to start."),
-]
-USEFUL = {  # "Útil si…" por etapa de la trayectoria
- "exp": ("necesitas crecer y ser rentable con una operación ordenada, basada en sistemas, datos y talento.", "you need to grow and be profitable with an orderly operation built on systems, data and talent."),
- "hauzz": ("estás construyendo una empresa inmobiliaria, o pensando en venderla.", "you are building a real estate company, or thinking about selling it."),
- "rive": ("vas a integrar un negocio tras una adquisición, o crecer dentro de una organización mayor.", "you are about to integrate a business after an acquisition, or grow inside a larger organization."),
- "tiko": ("tienes que montar desde cero una operación comercial y una red de agentes.", "you have to set up a commercial operation and an agent network from scratch."),
- "pe": ("evalúas una inversión, una adquisición o la economía de un negocio.", "you are evaluating an investment, an acquisition or the economics of a business."),
-}
-AUDIENCES = [  # quién se beneficia de conversar -> (público es, en, qué resuelve es, en, mensaje es, en)
- ("Agentes y propietarios de agencias", "Agents and agency owners", "Crecer con credibilidad, un modelo de gestión claro y autonomía para tu equipo.", "Growing with credibility, a clear management model and autonomy for your team.", "Hola José Antonio, dirijo una agencia o equipo inmobiliario y me gustaría conversar contigo.", "Hello José Antonio, I run a real estate agency or team and I'd like to talk with you."),
- ("Empresarios y posibles socios", "Entrepreneurs and potential partners", "Construir y escalar un negocio con criterio y ejecución.", "Building and scaling a business with judgement and execution.", "Hola José Antonio, soy empresario y me gustaría explorar una colaboración contigo.", "Hello José Antonio, I'm an entrepreneur and I'd like to explore working together."),
- ("Inversores, fondos y directivos", "Investors, funds and executives", "Mirar un negocio por sus fundamentos: métricas, mejora operativa y rentabilidad.", "Looking at a business through its fundamentals: metrics, operational improvement and profitability.", "Hola José Antonio, te escribo desde el mundo de la inversión o la dirección y me gustaría conversar.", "Hello José Antonio, I'm writing from the investment or executive world and I'd like to talk."),
- ("Medios y organizadores", "Media and organizers", "Una conversación con experiencia directa sobre real estate, liderazgo y escalabilidad.", "A conversation grounded in firsthand experience of real estate, leadership and scaling.", "Hola José Antonio, me gustaría invitarte a una entrevista, podcast o evento.", "Hello José Antonio, I'd like to invite you to an interview, podcast or event."),
-]
-
-REASONS = [
- ("Entrevista, podcast o evento", "Interview, podcast or event", "Hola José Antonio, me gustaría invitarte a una entrevista, podcast o evento.", "Hello José Antonio, I'd like to invite you to an interview, podcast or event."),
- ("Alianza empresarial", "Strategic partnership", "Hola José Antonio, me gustaría explorar una alianza empresarial.", "Hello José Antonio, I'd like to explore a strategic partnership."),
- ("Negocio o proyecto", "Business or project", "Hola José Antonio, quiero comentarte un negocio o proyecto.", "Hello José Antonio, I'd like to share a business opportunity or project."),
- ("Inversión o dirección", "Investment or leadership", "Hola José Antonio, quiero hablar contigo sobre una inversión o un puesto de dirección.", "Hello José Antonio, I'd like to talk about an investment or a leadership role."),
- ("Otro motivo", "Something else", "Hola José Antonio, me gustaría ponerme en contacto contigo.", "Hello José Antonio, I'd like to get in touch."),
+MOTIVOS = [  # valor, es, en  (formulario de contacto)
+ ("negocio", "Oportunidad empresarial", "Business opportunity"),
+ ("alianza", "Alianza", "Partnership"),
+ ("inversion", "Inversión", "Investment"),
+ ("medios", "Medios o eventos", "Media or events"),
+ ("otro", "Otro", "Other"),
 ]
 
 # ---------------------------------------------------------------- piezas HTML
@@ -265,14 +246,13 @@ IC_IG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 
 def u(key, lang): return PAGES[key][lang]
 def abs_u(key, lang): return DOMAIN + PAGES[key][lang]
 
-def header(lang, key):
+def header(lang, key, switch=None):
     items = [f'<a href="{u(k, lang)}"{" aria-current=\"page\"" if k == key else ""}>{t(lang, a, b)}</a>' for k, a, b in NAV]
-    items.insert(3, f'<a href="{BLOG_URL}" target="_blank" rel="noopener" class="blog-l">Blog<span class="sr"> ({t(lang, "se abre en una pestaña nueva", "opens in a new tab")})</span></a>')
     links = "".join(items)
     o = OTHER[lang]
     return (f'<header id="hd"><div class="wrap nav"><a class="logo" href="{u("home", lang)}" aria-label="{NAME}, {t(lang, "inicio", "home")}">{NAME}</a>'
             f'<nav class="links" aria-label="{t(lang, "Principal", "Main")}">{links}'
-            f'<a id="lang" class="lang" href="{u(key, o)}" hreflang="{o}" lang="{o}" aria-label="{t(lang, "Read this page in English", "Leer esta página en español")}">{o.upper()}</a></nav></div></header>')
+            f'<a id="lang" class="lang" href="{switch or u(key, o)}" hreflang="{o}" lang="{o}" aria-label="{t(lang, "Read this page in English", "Leer esta página en español")}">{o.upper()}</a></nav></div></header>')
 
 def footer(lang):
     soc = ""
@@ -299,23 +279,25 @@ def person(lang):
 def crumbs(lang, key):
     items = [{"@type": "ListItem", "position": 1, "name": t(lang, "Inicio", "Home"), "item": abs_u("home", lang)}]
     if key != "home":
-        nm = {"about": ("Sobre mí", "About"), "exp": ("Trayectoria", "Experience"), "contact": ("Contacto", "Contact"), "legal": ("Aviso legal", "Legal notice"), "privacy": ("Privacidad", "Privacy"), "terms": ("Términos y condiciones", "Terms and conditions"), "cookies": ("Cookies", "Cookies")}[key]
+        nm = {"about": ("Sobre mí", "About"), "exp": ("Trayectoria", "Experience"), "ideas": ("Ideas", "Insights"), "contact": ("Contacto", "Contact"), "legal": ("Aviso legal", "Legal notice"), "privacy": ("Privacidad", "Privacy"), "terms": ("Términos y condiciones", "Terms and conditions"), "cookies": ("Cookies", "Cookies")}[key]
         items.append({"@type": "ListItem", "position": 2, "name": t(lang, *nm), "item": abs_u(key, lang)})
     return {"@type": "BreadcrumbList", "itemListElement": items}
 
 def website(lang):
     return {"@type": "WebSite", "@id": DOMAIN + "/#web", "url": DOMAIN + "/", "name": NAME, "inLanguage": ["es", "en"], "publisher": {"@id": DOMAIN + "/#persona"}}
 
-def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es"):
-    title, desc = META[key][lang]; o = OTHER[lang]
-    url = abs_u(key, lang)
+def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es", meta=None, url=None, alts=None, switch=None, og_type=None):
+    title, desc = meta or META[key][lang]; o = OTHER[lang]
+    url = url or abs_u(key, lang)
+    alts = alts or {lang: url, o: abs_u(key, o)}
+    alt_tags = "\n".join(f'<link rel="alternate" hreflang="{l_}" href="{h_}">' for l_, h_ in alts.items() if h_) + f'\n<link rel="alternate" hreflang="x-default" href="{alts.get("es") or url}">'
     ld = {"@context": "https://schema.org", "@graph": [website(lang), person(lang)] + extra_ld}
     robots = "noindex, nofollow" if (STAGING or key in NOINDEX) else "index, follow, max-image-preview:large, max-snippet:-1"
     pre = ""
     if lcp:
         k, sizes = lcp; ws = widths_for(k)
         pre = f'<link rel="preload" as="image" type="image/webp" imagesrcset="{", ".join(f"/img/{k}-{x}.webp {x}w" for x in ws)}" imagesizes="{sizes}" fetchpriority="high">'
-    ot = {"home": "website", "about": "profile"}.get(key, "website")
+    ot = og_type or {"home": "website", "about": "profile"}.get(key, "website")
     return f'''<!doctype html>
 <html lang="{lang}"{" data-demo" if DEMO else ""}>
 <head>
@@ -327,9 +309,7 @@ def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es"):
 <meta name="author" content="{NAME}">
 <meta name="theme-color" content="#0E1626">
 <link rel="canonical" href="{url}">
-<link rel="alternate" hreflang="{lang}" href="{url}">
-<link rel="alternate" hreflang="{o}" href="{abs_u(key, o)}">
-<link rel="alternate" hreflang="x-default" href="{abs_u(key, "es")}">
+{alt_tags}
 <link rel="alternate" type="text/plain" href="{DOMAIN}/llms.txt" title="LLMs.txt">
 <meta property="og:type" content="{ot}">
 <meta property="og:site_name" content="{NAME}">
@@ -366,22 +346,98 @@ def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es"):
 </head>
 <body>
 <a class="skip" href="#main">{t(lang, "Saltar al contenido", "Skip to content")}</a>
-{header(lang, key)}
+{header(lang, key, switch)}
 <main id="main">
 {body}
 </main>
 {footer(lang)}
-{f'<div class="note">{t(lang, "Maqueta · datos de ejemplo (teléfono, correo y redes pendientes)", "Mockup · sample data (phone, email and social pending)")}</div>' if DEMO else ""}
+{f'<div class="note">{t(lang, "Maqueta · datos de ejemplo (correo de destino del formulario y redes pendientes)", "Mockup · sample data (form recipient email and social pending)")}</div>' if DEMO else ""}
 <script src="/assets/qrcode.min.js"></script>
 <script src="/assets/kit.js"></script>
 <script src="/assets/consent.js"></script>
+{'<script src="/assets/form.js"></script>' if key == "contact" else ""}
 </body>
 </html>
 '''
 
 def contact_btn(lang, label_es, label_en, cls="btn", msg=None):
-    m = f' data-message="{esc(msg)}"' if msg else ""
-    return f'<a class="{cls}" href="{u("contact", lang)}" data-contact{m}>{t(lang, label_es, label_en)}</a>'
+    """Enlace normal a la página de Contacto (ya no existe ventana de llamada/SMS/WhatsApp)."""
+    return f'<a class="{cls}" href="{u("contact", lang)}">{t(lang, label_es, label_en)}</a>'
+
+# ---------------------------------------------------------------- Ideas / Insights: artículos desde content/ideas/*.md
+CONTENT = os.path.join(ROOT, "content", "ideas")
+ARTICLES = []          # se rellena en load_articles()
+MONTHS = {"es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+          "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]}
+
+def fmt_date(d, lang):
+    y, m, dd = [int(x) for x in d.split("-")]
+    return f"{dd} de {MONTHS['es'][m - 1]} de {y}" if lang == "es" else f"{dd} {MONTHS['en'][m - 1]} {y}"
+
+def parse_front(txt):
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", txt, re.S)
+    if not m: return {}, txt
+    meta = {}
+    for line in m.group(1).splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1); meta[k.strip().lower()] = v.strip().strip('"').strip("'")
+    return meta, m.group(2)
+
+def md_inline(s):
+    s = esc(s, quote=False)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", s)
+    s = re.sub(r"\[([^\]]+)\]\((https?://[^\s)]+|/[^\s)]*)\)", lambda m: f'<a href="{m.group(2)}">{m.group(1)}</a>', s)
+    return s
+
+def md(text):
+    out, para, items = [], [], []
+    def flush():
+        nonlocal para, items
+        if para: out.append("<p>" + md_inline(" ".join(para)) + "</p>"); para = []
+        if items: out.append("<ul>" + "".join(f"<li>{md_inline(i)}</li>" for i in items) + "</ul>"); items = []
+    for line in text.splitlines():
+        l = line.rstrip()
+        if not l.strip(): flush(); continue
+        if l.startswith("### "): flush(); out.append(f"<h3>{md_inline(l[4:])}</h3>")
+        elif l.startswith("## "): flush(); out.append(f"<h2>{md_inline(l[3:])}</h2>")
+        elif l.startswith("> "): flush(); out.append(f"<blockquote><p>{md_inline(l[2:])}</p></blockquote>")
+        elif re.match(r"^[-*] ", l):
+            if para: out.append("<p>" + md_inline(" ".join(para)) + "</p>"); para = []
+            items.append(l[2:])
+        else:
+            if items: out.append("<ul>" + "".join(f"<li>{md_inline(i)}</li>" for i in items) + "</ul>"); items = []
+            para.append(l.strip())
+    flush()
+    return "\n".join(out)
+
+def load_articles():
+    ARTICLES.clear()
+    if not os.path.isdir(CONTENT): return
+    for f in sorted(os.listdir(CONTENT)):
+        m = re.match(r"^([a-z0-9-]+)\.(es|en)\.md$", f)
+        if not m or f.startswith("_"): continue
+        meta, body = parse_front(open(os.path.join(CONTENT, f), encoding="utf-8").read())
+        if meta.get("draft", "false").lower() == "true": continue
+        slug, lang = m.group(1), m.group(2)
+        for k in ("title", "date", "category", "excerpt"):
+            assert meta.get(k), f"{f}: falta «{k}» en el encabezado"
+        assert meta["category"] in [c[0] for c in CATS], f"{f}: categoría desconocida «{meta['category']}»"
+        words = len(re.findall(r"\w+", body))
+        ARTICLES.append({"slug": slug, "lang": lang, "title": meta["title"], "date": meta["date"], "cat": meta["category"], "excerpt": meta["excerpt"],
+                         "key": meta.get("translation", slug), "html": md(body), "read": max(1, round(words / 200))})
+    ARTICLES.sort(key=lambda a: a["date"], reverse=True)
+
+def article_url(a): return DOMAIN + PAGES["ideas"][a["lang"]] + a["slug"] + "/"
+def article_path(a): return PAGES["ideas"][a["lang"]] + a["slug"] + "/"
+def article_twin(a):
+    for b in ARTICLES:
+        if b["key"] == a["key"] and b["lang"] != a["lang"]: return b
+    return None
+def cat_label(key, lang):
+    for k, es_, en_ in CATS:
+        if k == key: return t(lang, es_, en_)
+    return key
 
 # ---------------------------------------------------------------- páginas
 def home(lang):
@@ -389,10 +445,10 @@ def home(lang):
     hero = f'''<section class="hero">
   {picture("controlas", lang, "100vw", eager=True)}
   <div class="wrap">
-    <p class="eyebrow">{L("Ejecutivo · Emprendedor · Real Estate", "Business Leader · Entrepreneur · Real Estate Executive")}</p>
+    <p class="eyebrow">{L("Líder empresarial · Emprendedor · Real Estate", "Business Leader · Entrepreneur · Real Estate Executive")}</p>
     <h1 class="display"><span class="sr">{NAME}. </span>{L("Construir. <em>Escalar. Transformar.</em>", "Build. <em>Scale. Transform.</em>")}</h1>
-    <p class="sub">{L("Para quienes dirigen agencias y equipos inmobiliarios: cómo crecer con orden, sin perder el control ni la autonomía de las personas.", "For those who run real estate agencies and teams: how to grow in an orderly way, without losing control or people’s autonomy.")}</p>
-    <div class="cta">{contact_btn(lang, "Conversemos", "Let's talk", "btn", L("Hola José Antonio, me gustaría conversar contigo.", "Hello José Antonio, I'd like to have a conversation with you."))}<a class="ulink" href="{u("exp", lang)}">{L("Conoce mi trayectoria", "Explore my experience")}</a></div>
+    <p class="sub">{L("Ejecutivo y emprendedor con trayectoria internacional en inversión, creación de empresas y liderazgo empresarial. Especializado en el crecimiento y la transformación de compañías inmobiliarias. Actualmente al frente de eXp Realty España.", "Executive and entrepreneur with an international background in investment, company building and business leadership. Focused on the growth and transformation of real estate companies. Currently leading eXp Realty Spain.")}</p>
+    <div class="cta"><a class="btn" href="{u("exp", lang)}">{L("Conoce mi trayectoria", "Explore my experience")}</a><a class="ulink" href="{u("about", lang)}">{L("Sobre mí", "About me")}</a></div>
   </div>
   <div class="now"><span>{L("Actualmente", "Currently")}</span><b>{L("Country Leader, eXp Realty España", "Country Leader, eXp Realty Spain")}</b></div>
 </section>'''
@@ -401,57 +457,67 @@ def home(lang):
   <div class="rv">
     <p class="kick">{L("Enfoque", "Approach")}</p>
     <h2>{L("El crecimiento es el resultado. <em>Los sistemas hacen que pueda repetirse.</em>", "Growth is the outcome. <em>Systems make it repeatable.</em>")}</h2>
-    <p class="lead">{L("Crecer es la parte fácil de contar. Lo difícil es hacerlo sin perder el control ni a tu gente.", "Growing is the easy part to talk about. The hard part is doing it without losing control or your people.")}</p>
-    <p class="txt">{L("Medir lo importante, anticipar los problemas y darle autonomía a las personas. Cuéntame qué estás intentando resolver y vemos si puedo aportarte algo.", "Measure what matters, spot problems early and give people autonomy. Tell me what you are trying to solve and we'll see if I can add something.")}</p>
-    <div class="cta-row"><a class="ulink" href="{u("about", lang)}" style="color:var(--ink)">{L("Mi historia", "My story")}</a>{contact_btn(lang, "Conversemos", "Let's talk", "ulink", L("Hola José Antonio, me gustaría conversar contigo.", "Hello José Antonio, I'd like to have a conversation with you."))}</div>
+    <p class="lead">{L("He trabajado en inversión, he fundado y vendido una empresa y he liderado operaciones comerciales en diferentes organizaciones.", "I have worked in investment, founded and sold a company, and led commercial operations across different organizations.")}</p>
+    <p class="txt">{L("Mi enfoque combina visión estratégica, equipos sólidos, procesos medibles y autonomía para ejecutar.", "My approach brings together strategic clarity, strong teams, measurable processes and the autonomy to execute.")}</p>
+    <div class="cta-row"><a class="ulink" href="{u("about", lang)}" style="color:var(--ink)">{L("Mi historia", "My story")}</a></div>
   </div>
 </div></section>'''
     res = f'''<section style="padding-top:0"><div class="wrap rv">
   <p class="kick">{L("Resultados", "Track record")}</p>
   <h2>{L("Del desafío <em>al resultado.</em>", "From challenge <em>to outcome.</em>")}</h2>
   <div class="rows">
-    <div class="row"><span class="n">+120 %</span><h3>{L("Crecimiento con rentabilidad", "Growth with profitability")}</h3><p>{L("eXp Realty España: +120 % de facturación en 22 meses y rentabilidad en 2026.", "eXp Realty Spain: +120% revenue in 22 months and profitability in 2026.")}</p></div>
-    <div class="row"><span class="n">Hauzz</span><h3>{L("De la idea a la adquisición", "From idea to acquisition")}</h3><p>{L("Hauzz: fundado, desarrollado y vendido a Rive.", "Hauzz: founded, scaled and sold to Rive.")}</p></div>
-    <div class="row"><span class="n">~250</span><h3>{L("Una red construida desde cero", "A network built from scratch")}</h3><p>{L("Unos 250 agentes en España y Portugal, construidos desde cero en Tiko.", "About 250 agents across Spain and Portugal, built from scratch at Tiko.")}</p></div>
+    <div class="row"><span class="n">+120 %</span><h3>{L("Crecimiento con rentabilidad", "Growth with profitability")}</h3><p>{L("eXp Realty España: +120 % de facturación en ~22 meses de liderazgo y rentabilidad en 2026.", "eXp Realty Spain: +120% revenue in ~22 months of leadership and profitability in 2026.")}</p></div>
+    <div class="row"><span class="n">Hauzz</span><h3>{L("De la idea a la adquisición", "From idea to acquisition")}</h3><p>{L("Empresa fundada, desarrollada y posteriormente vendida a Rive.", "A company founded, scaled and later sold to Rive.")}</p></div>
+    <div class="row"><span class="n">~250</span><h3>{L("Una red construida desde cero", "A network built from scratch")}</h3><p>{L("Aproximadamente 250 agentes en España y Portugal, construidos desde cero en Tiko.", "Approximately 250 agents across Spain and Portugal, built from scratch at Tiko.")}</p></div>
   </div>
+  <div class="transf"><p class="kick" style="margin-bottom:10px">{L("La transformación de eXp", "The eXp transformation")}</p>
+  <p>{L("En eXp Realty España, junto con mi equipo, hemos combinado crecimiento y rentabilidad con una transformación operativa basada en procesos, sistemas de gestión y decisiones apoyadas en datos. El objetivo: anticiparnos a los problemas y escalar el negocio sin limitar innecesariamente la autonomía de los agentes.", "At eXp Realty Spain, together with my team, we have combined growth and profitability with an operational transformation built on processes, management systems and data-driven decisions. The goal: to anticipate problems and scale the business without needlessly limiting the autonomy of agents.")}</p></div>
   <figure class="band">{picture("lidera", lang, "(max-width: 1180px) 100vw, 1180px")}</figure>
-  <p class="cta-line">{L("¿Quieres saber cómo se logró?", "Want to know how it was done?")} {contact_btn(lang, "Pregúntamelo en una conversación", "Ask me in a conversation", "ulink", L("Hola José Antonio, me gustaría que me cuentes cómo lograste estos resultados.", "Hello José Antonio, I'd like you to tell me how you achieved these results."))}</p>
 </div></section>'''
-    topic_rows = "".join(f'<a class="row topic" href="{u("contact", lang)}" data-contact data-message="{esc(L("Hola José Antonio, me identifico con esto: «", "Hello José Antonio, this sounds like me: “") + L(a, b) + L("». Me gustaría conversar contigo.", "”. I'd like to talk with you."))}"><span class="n2">0{i+1}</span><h3>{L(a, b)}</h3><span class="go">{L("Conversemos →", "Let's talk →")}</span></a>' for i, (a, b) in enumerate(TOPICS))
-    topics = f'''<section class="topics" id="temas"><div class="wrap rv">
-  <p class="kick">{L("¿Te suena?", "Sound familiar?")}</p>
-  <h2>{L("¿Qué estás intentando <em>resolver?</em>", "What are you trying <em>to solve?</em>")}</h2>
-  <p class="topics-p">{L("Elige lo que más se parezca a tu situación y lo conversamos.", "Pick what looks most like your situation and let's talk it through.")}</p>
-  <div class="topics-grid"><figure class="tph">{picture("cero", lang, "(max-width: 900px) 90vw, 360px")}</figure><div class="rows">{topic_rows}</div></div>
+    area_rows = "".join(f'<div class="row area-r"><span class="n2">0{i+1}</span><h3>{L(a, b)}</h3><p>{L(c, d)}</p></div>' for i, (a, b, c, d) in enumerate(AREAS))
+    expertise = f'''<section class="expertise" id="areas"><div class="wrap rv">
+  <p class="kick">{L("Áreas de experiencia", "Areas of expertise")}</p>
+  <h2>{L("Perspectivas <em>y especialidades.</em>", "Perspectives <em>and specialties.</em>")}</h2>
+  <p class="topics-p">{L("Las cinco áreas en las que se apoya mi experiencia profesional.", "The five areas my professional experience is built on.")}</p>
+  <div class="topics-grid"><figure class="tph">{picture("cero", lang, "(max-width: 900px) 90vw, 360px")}</figure><div class="rows">{area_rows}</div></div>
 </div></section>'''
     V2ROWS = {"exp": ("Country Leader / MD", "eXp Realty España", "eXp Realty Spain"), "hauzz": ("Founder &amp; CEO", "Hauzz", "Hauzz"), "rive": ("Brokerage", "Rive / Kodit", "Rive / Kodit"), "tiko": ("Head of Brokerage", "Tiko · ES + PT", "Tiko · ES + PT"), "pe": ("Senior Acquisitions Associate", "Private Equity · EE. UU.", "Private Equity · US")}
-    tray_rows = "".join(f'<a class="row" href="{u("exp", lang)}#{i}"><span class="role">{V2ROWS[i][0]}</span><h3>{L(V2ROWS[i][1], V2ROWS[i][2])}</h3><p>{L(*hd)}</p></a>' for i, comp, role, hd, pp, hl in EXP)
+    PE_P = ("Participación en procesos de adquisición por un volumen agregado aproximado de US$250 M en un año.", "Took part in acquisition processes totalling about US$250M in aggregate volume over one year.")
+    tray_rows = "".join(f'<a class="row" href="{u("exp", lang)}#{i}"><span class="role">{V2ROWS[i][0]}</span><h3>{L(V2ROWS[i][1], V2ROWS[i][2])}</h3><p>{L(*(PE_P if i == "pe" else hd))}</p></a>' for i, comp, role, hd, pp, hl in EXP)
     tray = f'''<section class="dark" id="trayectoria"><div class="wrap rv">
   <div class="tray-h"><div><p class="kick">{L("Trayectoria", "Experience")}</p>
   <h2>{L("El recorrido detrás <em>de cada resultado.</em>", "The path behind <em>every result.</em>")}</h2></div>
   <figure class="tph2">{picture("country", lang, "(max-width: 900px) 90vw, 440px")}</figure></div>
   <div class="rows">{tray_rows}</div>
-  <p class="cta-line" style="color:#c5cde0">{L("¿Te interesa alguna de estas etapas?", "Interested in any of these stages?")} {contact_btn(lang, "Cuéntame y lo conversamos", "Tell me and let's talk it through", "ulink", L("Hola José Antonio, me gustaría conversar sobre tu trayectoria.", "Hello José Antonio, I'd like to talk about your career."))}</p>
 </div></section>'''
     split = f'''<section class="split">
   {picture("cierre", lang, "(max-width: 860px) 100vw, 50vw")}
   <div>
-    <p class="kick" style="color:#9db9ea">{L("La disciplina", "Discipline")}</p>
-    <h2 class="q">{L("“No controlas el resultado. Sí controlas tu siguiente paso.”", "“You don't control the outcome. You do control your next step.”")}</h2>
-    <p>{L("El marcador no se controla; el proceso, sí. Preparación, análisis riguroso y constancia: la disciplina del deporte de alto rendimiento llevada a la dirección de equipos y empresas.", "You don’t control the scoreboard; you do control the process. Preparation, rigorous analysis and consistency: the discipline of high-performance sport, applied to leading teams and companies.")}</p>
-    {contact_btn(lang, "Invítame a tu evento o podcast", "Invite me to your event or podcast", "ulink", L("Hola José Antonio, me gustaría invitarte a nuestro evento o podcast.", "Hello José Antonio, I'd like to invite you to our event or podcast."))}
+    <p class="kick" style="color:#9db9ea">{L("Liderazgo", "Leadership")}</p>
+    <h2 class="q">{L("Autonomía con responsabilidad. Crecimiento con método.", "Autonomy with accountability. Growth with discipline.")}</h2>
+    <p>{L("Una organización sólida no necesita multiplicar reglas para tener control. Necesita claridad, procesos, indicadores útiles y equipos capaces de actuar a tiempo. La disciplina operativa debe liberar capacidad, no convertirse en burocracia.", "Strong organizations don't need more rules for the sake of control. They need clarity, effective processes, meaningful metrics and teams empowered to act early. Operational discipline should enable people, not create bureaucracy.")}</p>
+    <a class="ulink" style="align-self:flex-start" href="{u("about", lang)}">{L("Sobre mí", "About me")}</a>
   </div>
 </section>'''
-    ints = "".join(f'<a class="intent" href="{u("contact", lang)}" data-contact data-message="{esc(L(c, d))}"><small>{L(sa, sb)}</small><b>{L(a, b)} →</b></a>' for (sa, sb), (a, b, c, d) in zip((("Entrevistas", "Interviews"), ("Alianzas", "Partnerships"), ("Negocio", "Business"), ("Capital", "Capital")), REASONS[:4]))
+    ideas_sec = ""
+    arts = [a for a in ARTICLES if a["lang"] == lang][:3]
+    if arts:
+        cards = "".join(f'<a class="row art-r" href="{article_path(a)}"><span class="cat">{cat_label(a["cat"], lang)}</span><h3>{esc(a["title"])}</h3><span class="dt">{fmt_date(a["date"], lang)}</span></a>' for a in arts)
+        ideas_sec = f'''<section class="ideas-home"><div class="wrap rv">
+  <p class="kick">{L("Ideas y perspectivas", "Ideas &amp; insights")}</p>
+  <h2>{L("Lo que he aprendido, <em>por escrito.</em>", "What I've learned, <em>in writing.</em>")}</h2>
+  <div class="rows">{cards}</div>
+  <div style="margin-top:32px"><a class="ulink" href="{u("ideas", lang)}" style="color:var(--ink)">{L("Ver todas las ideas", "See all insights")}</a></div>
+</div></section>'''
     cont = f'''<section class="contact" id="contacto">{picture("audiencia", lang, "100vw", cls="cbg")}<div class="wrap rv">
   <p class="kick" style="color:#9db9ea">{L("Contacto", "Contact")}</p>
-  <h2>{L("Las buenas oportunidades <em>empiezan con una conversación.</em>", "Great opportunities <em>often begin with a conversation.</em>")}</h2>
-  <p style="color:#b6c1d6;max-width:56ch;margin:-24px 0 40px;font-size:1.1rem">{L("Cuéntame qué estás intentando resolver. Si puedo aportar algo, lo conversamos. También para entrevistas, podcasts y eventos.", "Tell me what you are trying to solve. If I can add something, let’s talk. Also for interviews, podcasts and events.")}</p>
-  <div class="intents">{ints}</div>
+  <h2>{L("Conectemos.", "Let's connect.")}</h2>
+  <p style="color:#dfe5f1;max-width:52ch;margin-bottom:34px;font-size:1.15rem">{L("Para oportunidades empresariales, alianzas estratégicas, nuevos proyectos, inversiones y colaboraciones profesionales.", "For business opportunities, strategic partnerships, new projects, investments and professional collaborations.")}</p>
+  <a class="btn" href="{u("contact", lang)}">{L("Contactar", "Get in touch")}</a>
 </div></section>'''
     wp = {"@type": "WebPage", "@id": abs_u("home", lang) + "#page", "url": abs_u("home", lang), "name": META["home"][lang][0], "description": META["home"][lang][1],
           "inLanguage": lang, "isPartOf": {"@id": DOMAIN + "/#web"}, "about": {"@id": DOMAIN + "/#persona"}, "primaryImageOfPage": {"@type": "ImageObject", "url": DOMAIN + "/img/controlas-1600.jpg"}}
-    return hero + intro + res + topics + tray + split + cont, [wp, crumbs(lang, "home")]
+    return hero + intro + res + expertise + tray + split + ideas_sec + cont, [wp, crumbs(lang, "home")]
 
 def about(lang):
     L = lambda es, en: t(lang, es, en)
@@ -473,14 +539,7 @@ def about(lang):
     bio = f'''<section><div class="wrap bio">
   <aside aria-label="{L("En esta página", "On this page")}"><a href="#biografia">{L("Biografía", "Biography")}</a><a href="#filosofia">{L("Filosofía", "Philosophy")}</a><a href="#formacion">{L("Formación", "Education")}</a><a href="#preguntas">{L("Preguntas frecuentes", "FAQ")}</a></aside>
   <div class="prose" id="biografia"><h2>{L("Biografía", "Biography")}</h2>{paras}
-  <p><a href="{u("exp", lang)}">{L("Más detalle de cada etapa en Trayectoria", "More detail on each stage in Experience")}</a>.</p>
-  <p>{L("¿Quieres conversar sobre alguna de estas etapas o entrevistarme?", "Want to talk about any of these stages, or interview me?")} {contact_btn(lang, "Escríbeme", "Write to me", "ulink", L("Hola José Antonio, me gustaría entrevistarte.", "Hello José Antonio, I'd like to interview you."))}</p></div>
-</div></section>'''
-    aud_rows = "".join(f'<a class="row aud-r" href="{u("contact", lang)}" data-contact data-message="{esc(L(e, f))}"><span class="role">{L(a, b)}</span><h3>{L(c, d)}</h3><span class="go">{L("Conversemos →", "Let's talk →")}</span></a>' for a, b, c, d, e, f in AUDIENCES)
-    aud = f'''<section class="aud" id="para-quien" style="padding-top:0"><div class="wrap">
-  <p class="kick">{L("¿Para quién?", "Who is it for?")}</p>
-  <h2>{L("Si te identificas, <em>conversemos.</em>", "If this is you, <em>let's talk.</em>")}</h2>
-  <div class="rows">{aud_rows}</div>
+  <p><a href="{u("exp", lang)}">{L("Más detalle de cada etapa en Trayectoria", "More detail on each stage in Experience")}</a>.</p></div>
 </div></section>'''
     phil = f'''<section class="phil" id="filosofia"><div class="wrap">
   <p class="kick" style="color:#9db9ea">{L("Filosofía de liderazgo", "Leadership philosophy")}</p>
@@ -492,26 +551,20 @@ def about(lang):
   <div><p>{L("Estudios de posgrado en Matemáticas en la Universidad de Miami, con experiencia en docencia universitaria.", "Postgraduate study in Mathematics at the University of Miami, with university teaching experience.")}</p>
   <p style="margin-top:18px">{L("El deporte, la familia y el aprendizaje continuo siguen siendo partes importantes de mi vida. Mi traslado a España fue también una elección personal: quería emprender y construir una vida más cerca de mi familia.", "Sport, family and continuous learning remain important parts of my life. Moving to Spain was both a professional and personal decision: I wanted to build something of my own and live closer to family.")}</p></div>
 </div></section>'''
-    areas = f'''<section class="dark"><div class="wrap">
-  <p class="kick">{L("Áreas de conocimiento", "Expertise")}</p>
-  <h2>{L("Las ideas que impulsan <em>mi trabajo.</em>", "The ideas behind <em>my work.</em>")}</h2>
-  <div class="areas">{"".join(f'<div class="area"><span>0{i+1}</span><h3>{L(a, b)}</h3><p>{L(c, d)}</p></div>' for i, (a, b, c, d) in enumerate(AREAS))}</div>
-</div></section>'''
-    faq = f'''<section style="padding-top:0;margin-top:96px" id="preguntas"><div class="wrap">
-  <p class="kick">{L("Preguntas frecuentes", "FAQ")}</p>
-  <h2 style="margin-bottom:32px">{L("Lo esencial, <em>en breve.</em>", "The essentials, <em>in brief.</em>")}</h2>
+    faq = f'''<section class="faq-s" id="preguntas"><div class="wrap">
+  <h2>{L("Preguntas frecuentes", "FAQ")}</h2>
   <div class="faq">{"".join(f"<details><summary>{L(a, b)}</summary><p>{L(c, d)}</p></details>" for a, b, c, d in FAQ)}</div>
 </div></section>'''
     cont = f'''<section class="contact" style="background:var(--ink);color:#fff"><div class="wrap">
   <p class="kick" style="color:#9db9ea">{L("Contacto", "Contact")}</p>
-  <h2 style="max-width:16ch;margin-bottom:34px">{L("Las buenas oportunidades <em>empiezan con una conversación.</em>", "Great opportunities <em>often begin with a conversation.</em>")}</h2>
-  {contact_btn(lang, "Entrevístame", "Interview me", "btn", L("Hola José Antonio, me gustaría entrevistarte.", "Hello José Antonio, I'd like to interview you."))}
+  <h2 style="max-width:16ch;margin-bottom:34px">{L("Conectemos.", "Let's connect.")}</h2>
+  {contact_btn(lang, "Contactar", "Get in touch")}
 </div></section>'''
     ld = [{"@type": "AboutPage", "@id": abs_u("about", lang) + "#page", "url": abs_u("about", lang), "name": META["about"][lang][0], "description": META["about"][lang][1], "inLanguage": lang,
            "isPartOf": {"@id": DOMAIN + "/#web"}, "about": {"@id": DOMAIN + "/#persona"}, "mainEntity": {"@id": DOMAIN + "/#persona"}},
           crumbs(lang, "about"),
           {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": L(a, b), "acceptedAnswer": {"@type": "Answer", "text": L(c, d)}} for a, b, c, d in FAQ]}]
-    return hero + glance + bio + aud + phil + edu + areas + faq + cont, ld
+    return hero + glance + bio + phil + edu + faq + cont, ld
 
 def exp(lang):
     L = lambda es, en: t(lang, es, en)
@@ -523,41 +576,103 @@ def exp(lang):
     items = ""
     for i, comp, role, hd, paras, hl in EXP:
         ps = "".join(f"<p>{L(a, b)}</p>" for a, b in paras)
-        hls = (f'<p class="hl">{L(*hl)}</p>' if hl else "") + f'<p class="useful"><b>{L("Útil si", "Useful if")}</b> {L(*USEFUL[i])}</p>'
-        items += f'<article class="xp" id="{i}"><div><p class="role" style="font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600">{L(*role)}</p></div><div><h2>{comp}</h2><p class="hd">{L(*hd)}</p>{ps}{hls}</div></article>'
+        items += f'<article class="xp" id="{i}"><div><p class="role" style="font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600">{L(*role)}</p></div><div><h2>{comp}</h2><p class="hd">{L(*hd)}</p>{ps}<p class="hl">{L(*hl)}</p></div></article>'
     body = f'''<section style="padding:72px 0 0"><div class="wrap">{items}</div></section>
 <section class="dark" style="margin-top:96px"><div class="wrap">
   <h2 style="max-width:20ch;margin-bottom:28px">{L("Mi trayectoria tiene un hilo conductor.", "A consistent thread runs through my career.")}</h2>
   <p style="color:#c5cde0;max-width:58ch;margin-bottom:34px;font-size:1.15rem">{L("Construir organizaciones con una dirección clara, los equipos adecuados y los sistemas necesarios para ejecutar.", "Building organizations with strategic direction, capable teams and the systems required to execute.")}</p>
-  {contact_btn(lang, "Conversemos sobre esta trayectoria", "Let's talk about this journey", "btn", L("Hola José Antonio, me gustaría conversar sobre tu trayectoria.", "Hello José Antonio, I'd like to talk about your career."))}
+  {contact_btn(lang, "Contactar", "Get in touch")}
 </div></section>'''
     ld = [{"@type": "WebPage", "@id": abs_u("exp", lang) + "#page", "url": abs_u("exp", lang), "name": META["exp"][lang][0], "description": META["exp"][lang][1], "inLanguage": lang, "isPartOf": {"@id": DOMAIN + "/#web"}, "about": {"@id": DOMAIN + "/#persona"}},
           crumbs(lang, "exp"),
           {"@type": "ItemList", "name": L("Trayectoria profesional", "Professional experience"), "itemListElement": [{"@type": "ListItem", "position": n + 1, "name": f"{L(*role)} · {comp}".replace("&amp;", "&"), "url": abs_u("exp", lang) + "#" + i} for n, (i, comp, role, hd, p, hl) in enumerate(EXP)]}]
     return head + body, ld
 
+def ideas(lang):
+    L = lambda es, en: t(lang, es, en)
+    arts = [a for a in ARTICLES if a["lang"] == lang]
+    head = f'''<section class="pgh"><div class="wrap">
+  <p class="crumb"><a href="{u("home", lang)}">{L("Inicio", "Home")}</a> / {L("Ideas", "Insights")}</p>
+  <h1>{L("Ideas y perspectivas", "Ideas &amp; insights")}</h1>
+  <p class="ent">{L("Compartir ideas también es una forma de seguir aprendiendo. Aquí reúno reflexiones basadas en experiencia directa sobre cómo construir y desarrollar mejores negocios.", "Sharing ideas is also a way of continuing to learn. Here I bring together perspectives drawn from firsthand experience in building, operating and growing businesses.")}</p>
+</div></section>'''
+    used = sorted({a["cat"] for a in arts})
+    chips = ""
+    if len(arts) > 1:
+        chips = '<div class="cats" role="group" aria-label="%s"><button type="button" class="chip on" data-cat="all">%s</button>%s</div>' % (L("Filtrar por categoría", "Filter by category"), L("Todas", "All"), "".join(f'<button type="button" class="chip" data-cat="{k}">{cat_label(k, lang)}</button>' for k in used))
+    else:
+        chips = '<div class="cats">' + "".join(f"<span>{L(es_, en_)}</span>" for k, es_, en_ in CATS) + "</div>"
+    if arts:
+        lst = "".join(f'<li data-cat="{a["cat"]}"><a class="row art-r" href="{article_path(a)}"><span class="cat">{cat_label(a["cat"], lang)}</span><span><h3>{esc(a["title"])}</h3><p>{esc(a["excerpt"])}</p></span><span class="dt">{fmt_date(a["date"], lang)} · {a["read"]} min</span></a></li>' for a in arts)
+        listing = f'<ul class="artlist">{lst}</ul>'
+    else:
+        listing = f'<p class="soon-p">{L("Los primeros artículos se publicarán próximamente.", "The first articles will be published soon.")}</p>'
+    body = f'<section><div class="wrap"><h2 class="h2s">{L("Últimas ideas", "Latest insights")}</h2>{chips}{listing}</div></section>'
+    ld = [{"@type": "CollectionPage", "@id": abs_u("ideas", lang) + "#page", "url": abs_u("ideas", lang), "name": META["ideas"][lang][0], "description": META["ideas"][lang][1], "inLanguage": lang, "isPartOf": {"@id": DOMAIN + "/#web"}, "about": [re.sub("&amp;", "&", L(a, b)) for k, a, b in CATS]},
+          crumbs(lang, "ideas")]
+    if arts: ld.append({"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": n + 1, "url": article_url(a), "name": a["title"]} for n, a in enumerate(arts)]})
+    return head + body, ld
+
+def article(lang, a):
+    L = lambda es, en: t(lang, es, en)
+    others = [b for b in ARTICLES if b["lang"] == lang and b["slug"] != a["slug"]][:2]
+    rel = ""
+    if others:
+        rel = f'<section style="padding-top:0"><div class="wrap"><p class="kick">{L("Sigue leyendo", "Keep reading")}</p><div class="rows">' + "".join(f'<a class="row art-r" href="{article_path(b)}"><span class="cat">{cat_label(b["cat"], lang)}</span><h3>{esc(b["title"])}</h3><span class="dt">{fmt_date(b["date"], lang)}</span></a>' for b in others) + '</div></div></section>'
+    head = f'''<section class="pgh"><div class="wrap">
+  <p class="crumb"><a href="{u("home", lang)}">{L("Inicio", "Home")}</a> / <a href="{u("ideas", lang)}">{L("Ideas", "Insights")}</a> / {cat_label(a["cat"], lang)}</p>
+  <h1>{esc(a["title"])}</h1>
+  <p class="ent">{esc(a["excerpt"])}</p>
+  <p class="byline">{NAME} · <time datetime="{a["date"]}">{fmt_date(a["date"], lang)}</time> · {a["read"]} min · {cat_label(a["cat"], lang)}</p>
+</div></section>'''
+    body = f'<section><div class="wrap"><article class="prose art">{a["html"]}</article></div></section>'
+    foot = f'''<section style="padding-top:0"><div class="wrap"><div class="rel"><span><span class="kick" style="margin:0;display:block">{L("Sobre el autor", "About the author")}</span><b>{NAME}</b></span><span style="display:flex;gap:22px;flex-wrap:wrap"><a class="ulink" href="{u("about", lang)}">{L("Sobre mí", "About me")}</a><a class="ulink" href="{u("exp", lang)}">{L("Trayectoria", "Experience")}</a><a class="ulink" href="{u("contact", lang)}">{L("Contacto", "Contact")}</a></span></div></div></section>'''
+    url = article_url(a)
+    ld = [{"@type": "BlogPosting", "@id": url + "#article", "headline": a["title"], "description": a["excerpt"], "url": url, "mainEntityOfPage": url,
+           "datePublished": a["date"], "dateModified": a["date"], "inLanguage": lang, "articleSection": re.sub("&amp;", "&", cat_label(a["cat"], lang)),
+           "author": {"@id": DOMAIN + "/#persona"}, "publisher": {"@id": DOMAIN + "/#persona"}, "image": DOMAIN + f"/assets/og/og-ideas-{lang}.jpg"},
+          {"@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": L("Inicio", "Home"), "item": abs_u("home", lang)},
+              {"@type": "ListItem", "position": 2, "name": L("Ideas", "Insights"), "item": abs_u("ideas", lang)},
+              {"@type": "ListItem", "position": 3, "name": a["title"], "item": url}]}]
+    return head + body + rel + foot, ld
+
 def contact(lang):
     L = lambda es, en: t(lang, es, en)
     head = f'''<section class="pgh"><div class="wrap">
   <p class="crumb"><a href="{u("home", lang)}">{L("Inicio", "Home")}</a> / {L("Contacto", "Contact")}</p>
   <h1>{L("Conectemos.", "Let's connect.")}</h1>
-  <p class="ent">{L("Entrevistas, podcasts, eventos, alianzas o una primera conversación. Me interesa conocer a personas y organizaciones que estén creando empresas, desarrollando ideas y construyendo proyectos con ambición a largo plazo. Si crees que podemos intercambiar perspectivas o explorar una colaboración, estaré encantado de conocerte.", "Interviews, podcasts, events, partnerships or a first conversation. I enjoy meeting people and organizations building businesses, developing ideas and pursuing ambitious long-term projects. If you think there is room to exchange perspectives or explore a collaboration, I'd be glad to hear from you.")}</p>
+  <p class="ent">{L("Para oportunidades empresariales, alianzas estratégicas, nuevos proyectos, inversiones y colaboraciones profesionales.", "For business opportunities, strategic partnerships, new projects, investments and professional collaborations.")}</p>
 </div></section>'''
-    reasons = "".join(f'<a class="reason" href="{u("contact", lang)}" data-contact data-message="{esc(L(c, d))}"><span>{L(a, b)}</span><span aria-hidden="true">→</span></a>' for a, b, c, d in REASONS)
-    body = f'''<section><div class="wrap">
-  <h2>{L("¿Sobre qué quieres <em>hablar?</em>", "What would you like <em>to discuss?</em>")}</h2>
-  <div class="reasons">{reasons}</div>
-  <p style="margin-top:28px;color:var(--mute);max-width:60ch;font-size:.92rem">{L("Al elegir un motivo se prepara un mensaje en tu dispositivo y eliges cómo enviarlo: llamada, SMS, WhatsApp o email. Esta web no guarda tus datos.", "Choosing a reason prepares a message on your device, and you pick how to send it: call, SMS, WhatsApp or email. This website does not store your data.")}</p>
-</div></section>
-<section class="dark" id="agendar"><div class="wrap">
-  <p class="kick">{L("Agenda", "Schedule")}</p>
-  <h2 style="margin-bottom:22px">{L("Una conversación, <em>sin compromiso.</em>", "A conversation, <em>no strings attached.</em>")}</h2>
-  <p style="color:#c5cde0;max-width:54ch;margin-bottom:30px;font-size:1.1rem">{L("Escríbeme y coordinamos un momento para hablar.", "Write to me and we'll find a time to talk.")}</p>
-  {contact_btn(lang, "Escribirme", "Write to me")}
+    opts = f'<option value="" selected disabled>{L("Elige un motivo", "Choose a reason")}</option>' + "".join(f'<option value="{v}">{L(a, b)}</option>' for v, a, b in MOTIVOS)
+    msgs = {"ok": L("Gracias. Tu mensaje se ha enviado correctamente.", "Thank you. Your message has been sent."),
+            "err": L("No hemos podido enviar tu mensaje. Inténtalo de nuevo en unos minutos.", "We couldn't send your message. Please try again in a few minutes."),
+            "nc": L("El formulario aún no está activo en esta vista previa.", "The form is not active yet in this preview."),
+            "req": L("Revisa los campos marcados: faltan datos o no son válidos.", "Please check the highlighted fields: some data is missing or invalid."),
+            "sending": L("Enviando…", "Sending…")}
+    data = " ".join(f'data-{k}="{esc(v)}"' for k, v in msgs.items())
+    form = f'''<section><div class="wrap cwrap">
+ <div><h2 class="h2s">{L("Escríbeme", "Write to me")}</h2>
+ <form class="cform" id="cform" method="post" action="/api/contact" novalidate {data}>
+  <input type="hidden" name="lang" value="{lang}"><input type="hidden" name="t" value="" id="cf-ts">
+  <p class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
+  <div class="f2">
+   <div class="fld"><label for="cf-n">{L("Nombre", "Name")}</label><input id="cf-n" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+   <div class="fld"><label for="cf-e">{L("Correo electrónico", "Email")}</label><input id="cf-e" name="email" type="email" autocomplete="email" required maxlength="160"></div>
+  </div>
+  <div class="fld"><label for="cf-c">{L("Empresa / organización", "Company / organization")} <span class="opt">({L("opcional", "optional")})</span></label><input id="cf-c" name="company" type="text" autocomplete="organization" maxlength="160"></div>
+  <div class="fld"><label for="cf-m">{L("Motivo de contacto", "Reason for contacting")}</label><select id="cf-m" name="reason" required>{opts}</select></div>
+  <div class="fld"><label for="cf-x">{L("Mensaje", "Message")}</label><textarea id="cf-x" name="message" rows="6" required maxlength="4000"></textarea></div>
+  <label class="chk"><input type="checkbox" name="consent" value="1" required><span>{L("He leído la", "I have read the")} <a href="{u("privacy", lang)}">{L("Política de privacidad", "Privacy policy")}</a> {L("y acepto que se utilice mi mensaje para responderme.", "and agree that my message be used to reply to me.")}</span></label>
+  <button class="btn fbtn" type="submit">{L("Enviar mensaje", "Send message")}</button>
+  <p class="fmsg" role="status" aria-live="polite" id="fmsg"></p>
+ </form></div>
+ <aside class="cside"><p class="kick">{L("También", "Also")}</p><p>{L("LinkedIn e Instagram, próximamente.", "LinkedIn and Instagram, coming soon.")}</p>
+ <p class="fnote">{L("Los datos que facilites se usan solo para responderte. Más información en la", "The data you provide is used only to reply to you. More information in the")} <a href="{u("privacy", lang)}">{L("Política de privacidad", "Privacy policy")}</a>.</p></aside>
 </div></section>'''
     ld = [{"@type": "ContactPage", "@id": abs_u("contact", lang) + "#page", "url": abs_u("contact", lang), "name": META["contact"][lang][0], "description": META["contact"][lang][1], "inLanguage": lang, "isPartOf": {"@id": DOMAIN + "/#web"}, "about": {"@id": DOMAIN + "/#persona"}},
           crumbs(lang, "contact")]
-    return head + body, ld
+    return head + form, ld
 
 def legal(lang, kind):
     L = lambda es, en: t(lang, es, en)
@@ -567,7 +682,7 @@ def legal(lang, kind):
             f'<section><div class="wrap"><div class="prose">{body_html}</div></div></section>')
     return body, [crumbs(lang, kind)]
 
-BUILDERS = {"home": home, "about": about, "exp": exp, "contact": contact, "legal": lambda l: legal(l, "legal"), "privacy": lambda l: legal(l, "privacy"), "terms": lambda l: legal(l, "terms"), "cookies": lambda l: legal(l, "cookies")}
+BUILDERS = {"home": home, "about": about, "exp": exp, "ideas": ideas, "contact": contact, "legal": lambda l: legal(l, "legal"), "privacy": lambda l: legal(l, "privacy"), "terms": lambda l: legal(l, "terms"), "cookies": lambda l: legal(l, "cookies")}
 
 # ---------------------------------------------------------------- archivos de sitio
 def write(path, txt):
@@ -584,6 +699,12 @@ def sitemap():
                    f'    <xhtml:link rel="alternate" hreflang="en" href="{abs_u(key, "en")}"/>',
                    f'    <xhtml:link rel="alternate" hreflang="x-default" href="{abs_u(key, "es")}"/>',
                    f"    <priority>{'1.0' if key == 'home' else '0.8'}</priority>", "  </url>"]
+    for a in ARTICLES:
+        tw = article_twin(a); o = OTHER[a["lang"]]
+        xs += ["  <url>", f"    <loc>{article_url(a)}</loc>", f"    <lastmod>{a['date']}</lastmod>"]
+        xs.append(f'    <xhtml:link rel="alternate" hreflang="{a["lang"]}" href="{article_url(a)}"/>')
+        if tw: xs.append(f'    <xhtml:link rel="alternate" hreflang="{o}" href="{article_url(tw)}"/>')
+        xs += [f'    <xhtml:link rel="alternate" hreflang="x-default" href="{article_url(tw) if (tw and a["lang"] == "en") else article_url(a)}"/>' if False else f'    <xhtml:link rel="alternate" hreflang="x-default" href="{article_url(a) if (a["lang"] == "es" or not tw) else article_url(tw)}"/>', "    <priority>0.6</priority>", "  </url>"]
     xs.append("</urlset>")
     return "\n".join(xs) + "\n"
 
@@ -600,33 +721,31 @@ def clean(s): return re.sub(r"<[^>]+>", "", s).replace("&amp;", "&")
 def llms():
     s = f"""# {NAME}
 
-> {NAME} es ejecutivo y emprendedor con trayectoria internacional en inversión, creación de empresas y liderazgo, especializado en el sector inmobiliario en España. Actualmente lidera eXp Realty España. / {NAME} is an executive and entrepreneur with an international background in investment, company building and leadership, focused on real estate in Spain. He currently leads eXp Realty Spain.
+> {NAME} es ejecutivo y emprendedor con trayectoria internacional en inversión, creación de empresas y liderazgo empresarial, especializado en el crecimiento y la transformación de compañías inmobiliarias en España. Actualmente lidera eXp Realty España. / {NAME} is an executive and entrepreneur with an international background in investment, company building and business leadership, focused on the growth and transformation of real estate companies in Spain. He currently leads eXp Realty Spain.
 
-Sitio oficial bilingüe (español e inglés). Cada página tiene su equivalente en el otro idioma. Los hechos de esta lista proceden de la propia web y de {NAME}.
+Sitio personal bilingüe (español e inglés), independiente de cualquier empresa. Cada página tiene su equivalente en el otro idioma. Los hechos de esta lista proceden de la propia web y de {NAME}.
 
 ## Español
 """
     for key in INDEXABLE: s += f"- [{META[key]['es'][0]}]({abs_u(key, 'es')}): {META[key]['es'][1]}\n"
     s += "\n## English\n"
     for key in INDEXABLE: s += f"- [{META[key]['en'][0]}]({abs_u(key, 'en')}): {META[key]['en'][1]}\n"
-    s += f"""
+    s += """
 ## Datos clave / Key facts
 - Cargo actual / Current role: Country Leader / Managing Director, eXp Realty España (Spain).
-- eXp Realty España: facturación +120 % en 22 meses; rentabilidad alcanzada en 2026 / revenue +120% in 22 months; profitability reached in 2026.
+- eXp Realty España: facturación +120 % en ~22 meses; rentabilidad alcanzada en 2026; procesos, sistemas de gestión y decisiones basadas en datos / revenue +120% in ~22 months; profitability reached in 2026; processes, management systems and data-driven decisions.
 - Hauzz: fundador y CEO; red de cientos de agentes; adquirida por Rive / founder & CEO; network of hundreds of agents; acquired by Rive.
 - Rive / Kodit: unos 18 meses en los que el negocio de intermediación casi duplicó su facturación / about 18 months in which the brokerage business nearly doubled revenue.
 - Tiko: Head of Brokerage, España y Portugal; red de unos 250 agentes / Spain & Portugal; network of about 250 agents.
-- Private equity (EE. UU. / US): Senior Acquisitions Associate; participó en procesos de adquisición con un volumen agregado aproximado de US$250 M en un año (no es inversión personal) / participated in acquisition processes totalling about US$250M in one year (not personal investment).
+- Private equity (EE. UU. / US): Senior Acquisitions Associate; participó en procesos de adquisición con un volumen agregado aproximado de US$250 M en un año (no es inversión personal) / participated in acquisition processes totalling about US$250M in one year (not personal investment). Después, análisis de financiación y deuda en Pensam / later, financing and debt analysis at Pensam.
 - Formación / Education: Matemáticas y Economía; posgrado en Matemáticas, University of Miami / Mathematics & Economics; postgraduate Mathematics, University of Miami.
 
-## Problemas en los que puede aportar / Problems he can help with
-""" + "\n".join(f"- {a} / {b}" for a, b in TOPICS) + f"""
-
-Contacto para entrevistas, podcasts, eventos y colaboraciones: {abs_u('contact', 'es')} / Contact for interviews, podcasts, events and collaborations: {abs_u('contact', 'en')}.
-
-## Blog
-- [Blog]({BLOG_URL}): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)
-
+## Áreas de experiencia / Areas of expertise (experiencia profesional, no servicios / professional experience, not services)
+"""
+    s += "\n".join(f"- {clean(a)} / {clean(b)}: {c} / {d}" for a, b, c, d in AREAS) + "\n"
+    if ARTICLES:
+        s += "\n## Ideas / Insights\n" + "\n".join(f"- [{a['title']}]({article_url(a)}): {a['excerpt']}" for a in ARTICLES) + "\n"
+    s += f"""
 ## Optional
 - [llms-full.txt]({DOMAIN}/llms-full.txt): contenido completo del sitio en texto / full site content in plain text.
 """
@@ -640,12 +759,13 @@ def llms_full():
         s += "\n\n".join(clean(L(a, b)) for a, b in BIO)
         s += f"\n\n## {L('Trayectoria', 'Experience')} ({abs_u('exp', lang)})\n"
         for i, comp, role, hd, paras, hl in EXP:
-            s += f"\n### {clean(comp)} — {clean(L(*role))}\n{clean(L(*hd))}\n\n" + "\n\n".join(clean(L(a, b)) for a, b in paras) + f"\n\n{L('Útil si', 'Useful if')} {clean(L(*USEFUL[i]))}\n"
-        s += f"\n## {L('Áreas de conocimiento', 'Expertise')}\n" + "\n".join(f"- {clean(L(a, b))}: {clean(L(c, d))}" for a, b, c, d in AREAS)
-        s += f"\n\n## {L('¿Para quién es útil conversar?', 'Who is it useful to talk with?')}\n" + "\n".join(f"- {clean(L(a, b))}: {clean(L(c, d))}" for a, b, c, d, e, f in AUDIENCES)
-        s += f"\n\n## {L('Problemas en los que puede aportar', 'Problems he can help with')}\n" + "\n".join(f"- {L(a, b)}" for a, b in TOPICS)
+            s += f"\n### {clean(comp)} — {clean(L(*role))}\n{clean(L(*hd))}\n\n" + "\n\n".join(clean(L(a, b)) for a, b in paras) + f"\n\n{clean(L(*hl))}\n"
+        s += f"\n## {L('Áreas de experiencia', 'Areas of expertise')}\n" + "\n".join(f"- {clean(L(a, b))}: {clean(L(c, d))}" for a, b, c, d in AREAS)
         s += f"\n\n## {L('Preguntas frecuentes', 'FAQ')}\n" + "\n\n".join(f"**{clean(L(a, b))}**\n{clean(L(c, d))}" for a, b, c, d in FAQ)
-        s += f"\n\n## {L('Contacto', 'Contact')} ({abs_u('contact', lang)})\n" + L("Contacto mediante la página de contacto: llamada, SMS, WhatsApp o email.", "Contact via the contact page: call, SMS, WhatsApp or email.") + "\n"
+        arts = [a for a in ARTICLES if a["lang"] == lang]
+        if arts:
+            s += f"\n\n## {L('Ideas y perspectivas', 'Insights')} ({abs_u('ideas', lang)})\n" + "\n".join(f"- [{a['title']}]({article_url(a)}) ({a['date']}): {a['excerpt']}" for a in arts)
+        s += f"\n\n## {L('Contacto', 'Contact')} ({abs_u('contact', lang)})\n" + L("Contacto mediante el formulario de la página de contacto (oportunidades empresariales, alianzas, inversión, medios o eventos).", "Contact via the form on the contact page (business opportunities, partnerships, investment, media or events).") + "\n"
     return s
 
 HEADERS = """/*
@@ -696,10 +816,11 @@ def ver(path):
 
 def bust(html):
     """Añade ?v=<hash> a los archivos de /assets para que la caché larga nunca sirva versiones viejas."""
-    return re.sub(r'(/assets/(?:site\.css|site\.js|kit\.js|consent\.js|qrcode\.min\.js))(?=")', lambda m: m.group(1) + "?v=" + ver(m.group(1)), html)
+    return re.sub(r'(/assets/(?:site\.css|site\.js|kit\.js|consent\.js|form\.js|qrcode\.min\.js))(?=")', lambda m: m.group(1) + "?v=" + ver(m.group(1)), html)
 
 def main():
     os.makedirs(OUT, exist_ok=True)
+    load_articles()
     build_images()
     icons_ok = icons()
     for key in PAGES:
@@ -708,6 +829,18 @@ def main():
             lcp = ("controlas", "100vw") if key == "home" else (("barcelona", "(max-width: 860px) 90vw, 420px") if key == "about" else None)
             og = f"og/og-{key}-{lang}" if key in OG_ALT else f"og/og-home-{lang}"
             write(PAGES[key][lang] + "index.html", bust(page(key, lang, body, ld, lcp, og)))
+    # limpiar artículos que ya no existen (o pasaron a borrador) para no dejar páginas huérfanas
+    for lg in ("es", "en"):
+        d = os.path.join(OUT, PAGES["ideas"][lg].strip("/"))
+        keep = {a_["slug"] for a_ in ARTICLES if a_["lang"] == lg}
+        if os.path.isdir(d):
+            for sub in os.listdir(d):
+                if os.path.isdir(os.path.join(d, sub)) and sub not in keep: shutil.rmtree(os.path.join(d, sub))
+    for a in ARTICLES:
+        body, ld = article(a["lang"], a); tw = article_twin(a)
+        alts = {a["lang"]: article_url(a), OTHER[a["lang"]]: (article_url(tw) if tw else None)}
+        switch = article_path(tw) if tw else PAGES["ideas"][OTHER[a["lang"]]]
+        write(article_path(a) + "index.html", bust(page("ideas", a["lang"], body, ld, None, f"og/og-ideas-{a['lang']}", meta=(f"{a['title']} | {NAME}", a["excerpt"]), url=article_url(a), alts=alts, switch=switch, og_type="article")))
     write("/index.html", f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{NAME}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="{'noindex' if STAGING else 'noindex, follow'}">
 <link rel="canonical" href="{DOMAIN}/es/"><meta http-equiv="refresh" content="0; url=/es/">
@@ -725,7 +858,7 @@ def main():
     write("/_headers", HEADERS); write("/_redirects", "/  /es/  302\n")
     # favicon.svg, favicon.ico y los íconos de app los genera tools/icons.py
     man = {"id": "/es/", "name": NAME, "short_name": "JA Borges",
-           "description": "José Antonio Borges: ejecutivo y emprendedor del sector inmobiliario. Entrevistas, alianzas y conversaciones.",
+           "description": "José Antonio Borges: líder empresarial, emprendedor y ejecutivo del sector inmobiliario.",
            "start_url": "/es/", "scope": "/", "display": "standalone", "orientation": "any", "lang": "es", "dir": "ltr",
            "background_color": "#0E1626", "theme_color": "#0E1626", "categories": ["business", "news"],
            "icons": [{"src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},

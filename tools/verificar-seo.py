@@ -58,7 +58,7 @@ LEGAL = {"/es/aviso-legal/", "/es/privacidad/", "/es/terminos-y-condiciones/", "
 allp = [p for p in pages if p != "/"]
 real = [p for p in allp if p not in LEGAL]
 ok(all(l in pages for l in LEGAL), "faltan las páginas legales")
-ok(len(real) == 8, f"Se esperaban 8 páginas (4 × 2 idiomas, sin blog en este sitio); hay {len(real)}")
+ok(len(real) >= 10, f"Se esperaban 10 páginas indexables como mínimo (5 × 2 idiomas, más artículos); hay {len(real)}")
 titles, descs = {}, {}
 ogs = {}
 parsed = {}
@@ -102,7 +102,7 @@ for url in sorted(allp):
         ok((w_, h_) == (1200, 630), f"{n}: la imagen OG debe ser 1200×630 (es {w_}×{h_})")
         ok(len(b) < 600000, f"{n}: la imagen OG pesa demasiado ({len(b)//1024} KB)")
         ok(f"-{lang}.jpg" in ogimg or url in LEGAL, f"{n}: la OG debe ser del idioma de la página ({ogimg})")
-        if url not in LEGAL: ogs.setdefault(ogimg, []).append(url)
+        if url not in LEGAL and not re.match(r'^/(es/ideas|en/insights)/[^/]+/$', url): ogs.setdefault(ogimg, []).append(url)   # los artículos comparten la OG de Ideas
     ok(bool(p.metas.get("og:image:alt")) and bool(p.metas.get("twitter:image:alt")), f"{n}: faltan og:image:alt / twitter:image:alt")
     ok(p.metas.get("twitter:image") == p.metas.get("og:image"), f"{n}: twitter:image distinta de og:image")
     # imágenes
@@ -143,8 +143,8 @@ for d, ps in descs.items(): ok(len(ps) == 1, f"meta description duplicada en {ps
 # sitemap
 sm = open(ROOT + "/sitemap.xml", encoding="utf-8").read()
 locs = re.findall(r"<loc>(.*?)</loc>", sm)
-ok(sorted(l.replace(DOMAIN, "") for l in locs) == sorted(real), "sitemap.xml no lista exactamente las 8 páginas")
-ok(sm.count('hreflang="x-default"') == 8, "sitemap: falta x-default en alguna URL")
+ok(sorted(l.replace(DOMAIN, "") for l in locs) == sorted(real), "sitemap.xml no lista exactamente las páginas indexables")
+ok(sm.count('hreflang="x-default"') == len(real), "sitemap: falta x-default en alguna URL")
 ok(all(re.search(r"<lastmod>\d{4}-\d\d-\d\d</lastmod>", sm) for _ in [0]), "sitemap sin lastmod")
 # robots
 rb = open(ROOT + "/robots.txt", encoding="utf-8").read()
