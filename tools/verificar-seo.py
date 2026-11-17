@@ -58,7 +58,8 @@ LEGAL = {"/es/aviso-legal/", "/es/privacidad/", "/es/terminos-y-condiciones/", "
 allp = [p for p in pages if p != "/"]
 real = [p for p in allp if p not in LEGAL]
 ok(all(l in pages for l in LEGAL), "faltan las páginas legales")
-ok(len(real) >= 10, f"Se esperaban 10 páginas indexables como mínimo (5 × 2 idiomas, más artículos); hay {len(real)}")
+EXT = 'IDEAS_URL = "https' in open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "build.py"), encoding="utf-8").read()
+ok(len(real) == 8 if EXT else len(real) >= 10, f"Páginas indexables esperadas: {8 if EXT else '≥10'} (Ideas {'externo' if EXT else 'integrado'}); hay {len(real)}")
 titles, descs = {}, {}
 ogs = {}
 parsed = {}
@@ -231,6 +232,7 @@ EXPECT_H1 = {"/es/": "José Antonio Borges", "/en/": "José Antonio Borges", "/e
              "/en/experience/": "Experience", "/es/contacto/": "Conectemos", "/en/contact/": "connect", "/es/aviso-legal/": "Aviso legal", "/en/legal-notice/": "Legal notice",
              "/es/privacidad/": "privacidad", "/en/privacy/": "Privacy", "/es/terminos-y-condiciones/": "Términos", "/en/terms-and-conditions/": "Terms", "/es/cookies/": "cookies", "/en/cookies/": "Cookie"}
 for url, kw in EXPECT_H1.items():
+    if url not in parsed: continue
     h1s = [h[1] for h in parsed[url].h if h[0] == "h1"]
     ok(len(h1s) == 1 and kw.lower() in h1s[0].lower(), f"{url}: el H1 debe ser único y contener «{kw}» (es {h1s})")
     ok(len(parsed[url].h) > 0 and parsed[url].h[0][0] == "h1", f"{url}: el H1 debe ser el primer encabezado")

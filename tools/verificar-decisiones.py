@@ -15,8 +15,9 @@ rd = lambda p: open(os.path.join(R, p.lstrip("/")), encoding="utf-8").read()
 vis = lambda h: re.sub(r"\s+", " ", re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", h, flags=re.S))
 
 css, kit = rd("assets/site.css"), rd("assets/kit.js")
-PAGES = {"es": ["/es/", "/es/sobre-mi/", "/es/trayectoria/", "/es/ideas/", "/es/contacto/"],
-         "en": ["/en/", "/en/about/", "/en/experience/", "/en/insights/", "/en/contact/"]}
+IDEAS = "https://ideas.joseantonioborges.com"   # blog de Ideas en sitio aparte (decisión de Milton, 2026-11-17)
+PAGES = {"es": ["/es/", "/es/sobre-mi/", "/es/trayectoria/", "/es/contacto/"],
+         "en": ["/en/", "/en/about/", "/en/experience/", "/en/contact/"]}
 LEGAL = ["/es/aviso-legal/", "/es/privacidad/", "/es/terminos-y-condiciones/", "/es/cookies/", "/en/legal-notice/", "/en/privacy/", "/en/terms-and-conditions/", "/en/cookies/"]
 
 def sections(h):
@@ -64,7 +65,7 @@ for lang, pages in PAGES.items():
     ok("0–0" not in vis(sp) and "0-0" not in vis(sp), f"{n}: la filosofía «Cada día empieza 0–0» no debe estar en el Home")
     # ---------- contacto del Home: breve, después de la credibilidad
     ct = re.search(r'<section class="contact".*?</section>', home, re.S).group(0)
-    ok(("Conectemos." if lang == "es" else "Let's connect.") in vis(ct) and f'href="{pages[4]}"' in ct, f"{n}: el contacto del Home es «Conectemos.» con botón a Contacto")
+    ok(("Conectemos." if lang == "es" else "Let's connect.") in vis(ct) and f'href="{pages[3]}"' in ct, f"{n}: el contacto del Home es «Conectemos.» con botón a Contacto")
     ok('class="intent"' not in home, f"{n}: el Home no debe tener vías de contacto por tema")
     ok('class="contact"' in sections(home)[-1], f"{n}: el contacto va al final, después de la credibilidad")
     ok("filter:grayscale" in css and ".intro figure img" in css, "CSS: fotos en blanco y negro")
@@ -72,12 +73,12 @@ for lang, pages in PAGES.items():
     for pg in pages:
         h = rd(pg + "index.html")
         navl = re.findall(r'<nav class="links".*?</nav>', h, re.S)[0]
-        labels = [re.sub(r"<[^>]+>", "", x).strip() for x in re.findall(r"<a [^>]*>(.*?)</a>", navl, re.S)]
+        labels = [re.sub(r"<[^>]+>|\(.*?\)", "", x).strip() for x in re.findall(r"<a [^>]*>(.*?)</a>", navl, re.S)]
         exp_labels = ["Inicio", "Sobre mí", "Trayectoria", "Ideas", "Contacto"] if lang == "es" else ["Home", "About", "Experience", "Insights", "Contact"]
         ok(labels[:5] == exp_labels and len(labels) == 6, f"{pg}: el menú debe ser {exp_labels} + idioma (es {labels})")
         hrefs = re.findall(r'<a href="([^"]*)"', navl)[:5]
-        ok(hrefs == pages, f"{pg}: los enlaces del menú deben ser internos y las 5 páginas ({hrefs})")
-        ok("target=" not in navl.split('id="lang"')[0], f"{pg}: «Ideas» está integrado en el sitio: ningún enlace del menú abre otra pestaña")
+        ok(hrefs == [pages[0], pages[1], pages[2], IDEAS, pages[3]], f"{pg}: «Ideas» debe llevar a {IDEAS}; el resto son páginas internas ({hrefs})")
+        ok(f'<a href="{IDEAS}" target="_blank" rel="noopener"' in navl and navl.count("target=") == 1, f"{pg}: solo «Ideas» abre en pestaña nueva")
         foot = re.search(r"<footer>.*?</footer>", h, re.S).group(0)
         ok('<a href="https://www.linkedin.com/in/jose-antonio-borges-b62b48132/" rel="me noopener noreferrer" target="_blank"' in foot, f"{pg}: el logo de LinkedIn debe enlazar al perfil dado por Milton")
         ok('<a href="https://www.instagram.com/j.a.borges87" rel="me noopener noreferrer" target="_blank"' in foot, f"{pg}: el logo de Instagram debe enlazar al perfil dado por Milton")
@@ -103,24 +104,24 @@ for lang, pages in PAGES.items():
     ok(("US$250" in vis(xp)) and ("Pensam" in vis(xp)), f"{pages[2]}: private equity ~US$250 M y Pensam")
     ok(all(x in xp for x in ('id="exp"', 'id="hauzz"', 'id="rive"', 'id="tiko"', 'id="pe"')), f"{pages[2]}: etapas eXp, Hauzz, Rive/Kodit, Tiko, Private Equity")
     ok(not re.search(r"dificultades financieras|financial difficulties|deuda de la compañía", vis(xp)), f"{pages[2]}: sin explicaciones sobre problemas financieros de Tiko")
-    # ---------- 7 Ideas integrado
-    idx = rd(pages[3] + "index.html")
-    ok(idx.count("<h1") == 1 and ("Ideas y perspectivas" if lang == "es" else "Ideas &amp; insights") in idx, f"{pages[3]}: página Ideas/Insights integrada")
+    # ---------- 7 Ideas: sitio aparte, sin páginas internas
+    ok(not os.path.exists(R + ("/es/ideas/" if lang == "es" else "/en/insights/") + "index.html"), f"no debe existir la página interna de Ideas/Insights ({lang}): el blog es {IDEAS}")
     # ---------- 8 Contacto: formulario real
-    co = rd(pages[4] + "index.html")
-    ok('id="cform"' in co and 'action="/api/contact"' in co and 'method="post"' in co, f"{pages[4]}: debe tener un formulario real hacia /api/contact")
+    co = rd(pages[3] + "index.html")
+    ok('id="cform"' in co and 'action="/api/contact"' in co and 'method="post"' in co, f"{pages[3]}: debe tener un formulario real hacia /api/contact")
     for fld in ('name="name"', 'name="email"', 'name="company"', 'name="reason"', 'name="message"', 'name="consent"', 'name="website"', 'name="t"'):
-        ok(fld in co, f"{pages[4]}: falta el campo {fld}")
-    ok(len(re.findall(r'<option value="(negocio|alianza|inversion|medios|otro)"', co)) == 5, f"{pages[4]}: 5 motivos (oportunidad empresarial, alianza, inversión, medios/eventos, otro)")
-    ok(("Enviar mensaje" if lang == "es" else "Send message") in co and "data-ok=" in co and "data-err=" in co, f"{pages[4]}: botón de envío y confirmación")
-    ok(("Para oportunidades empresariales, alianzas estratégicas, nuevos proyectos, inversiones y colaboraciones profesionales." if lang == "es" else "For business opportunities, strategic partnerships, new projects, investments and professional collaborations.") in vis(co), f"{pages[4]}: texto sugerido del propietario")
-    ok('/assets/form.js' in co and 'href="' + ("/es/privacidad/" if lang == "es" else "/en/privacy/") in co, f"{pages[4]}: form.js y enlace a privacidad")
+        ok(fld in co, f"{pages[3]}: falta el campo {fld}")
+    ok(len(re.findall(r'<option value="(negocio|alianza|inversion|medios|otro)"', co)) == 5, f"{pages[3]}: 5 motivos (oportunidad empresarial, alianza, inversión, medios/eventos, otro)")
+    ok(("Enviar mensaje" if lang == "es" else "Send message") in co and "data-ok=" in co and "data-err=" in co, f"{pages[3]}: botón de envío y confirmación")
+    ok(("Para oportunidades empresariales, alianzas estratégicas, nuevos proyectos, inversiones y colaboraciones profesionales." if lang == "es" else "For business opportunities, strategic partnerships, new projects, investments and professional collaborations.") in vis(co), f"{pages[3]}: texto sugerido del propietario")
+    ok('/assets/form.js' in co and 'href="' + ("/es/privacidad/" if lang == "es" else "/en/privacy/") in co, f"{pages[3]}: form.js y enlace a privacidad")
 
 # ---------- textos de llms sin lenguaje comercial
 for f in ("llms.txt", "llms-full.txt"):
     tx = rd(f)
     for bad in ("Conversemos", "Útil si", "Useful if", "resolver", "trying to solve", "Problemas en los que", "wa.me"): ok(bad not in tx, f"{f}: contiene «{bad}»")
-    ok("blog.joseantonioborges.com" not in tx, f"{f}: «Ideas» está integrado; no debe enlazar a un blog externo")
+    ok("blog.joseantonioborges.com" not in tx, f"{f}: no debe usar el antiguo blog.joseantonioborges.com")
+    ok(("https://ideas.joseantonioborges.com" in tx) if f == "llms.txt" else True, f"{f}: debe enlazar al blog de Ideas")
 
 # ---------- Kit/encabezado: sin canales de mensajería
 for bad in ("wa.me", "sms:", "tel:", "call:", "CONFIG", "agenda"): ok(bad not in kit, f"kit.js: no debe contener «{bad}» (eliminado por el propietario)")

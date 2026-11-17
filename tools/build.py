@@ -17,6 +17,7 @@ LASTMOD = "2026-11-16"
 UPDATED = {"es": "16 de noviembre de 2026", "en": "16 November 2026"}
 DEMO = False     # True = muestra el aviso flotante de maqueta. Quitado a pedido de Milton (2026-11-17)
 NAME = "José Antonio Borges"
+IDEAS_URL = "https://ideas.joseantonioborges.com"   # blog de Ideas en sitio aparte (decisión de Milton, 2026-11-17). Vacío = Ideas integrado en este sitio
 LINKEDIN = "https://www.linkedin.com/in/jose-antonio-borges-b62b48132/"   # perfil público (dado por Milton, 2026-11-17)
 INSTAGRAM = "https://www.instagram.com/j.a.borges87"   # perfil público (dado por Milton, 2026-11-17)
 
@@ -39,7 +40,7 @@ PAGES = {
     "cookies": {"es": "/es/cookies/", "en": "/en/cookies/"},
 }
 NOINDEX = ("legal", "privacy", "terms", "cookies")            # borradores a la espera de datos del titular
-INDEXABLE = [k for k in PAGES if k not in NOINDEX]
+INDEXABLE = [k for k in PAGES if k not in NOINDEX and not (k == "ideas" and IDEAS_URL)]
 NAV = [("home", "Inicio", "Home"), ("about", "Sobre mí", "About"), ("exp", "Trayectoria", "Experience"), ("ideas", "Ideas", "Insights"), ("contact", "Contacto", "Contact")]
 OTHER = {"es": "en", "en": "es"}
 LOCALE = {"es": "es_ES", "en": "en_US"}
@@ -247,7 +248,12 @@ def u(key, lang): return PAGES[key][lang]
 def abs_u(key, lang): return DOMAIN + PAGES[key][lang]
 
 def header(lang, key, switch=None):
-    items = [f'<a href="{u(k, lang)}"{" aria-current=\"page\"" if k == key else ""}>{t(lang, a, b)}</a>' for k, a, b in NAV]
+    items = []
+    for k, a, b in NAV:
+        if k == "ideas" and IDEAS_URL:
+            items.append(f'<a href="{IDEAS_URL}" target="_blank" rel="noopener" class="blog-l">{t(lang, a, b)}<span class="sr"> ({t(lang, "se abre en una pestaña nueva", "opens in a new tab")})</span></a>')
+        else:
+            items.append(f'<a href="{u(k, lang)}"{" aria-current=\"page\"" if k == key else ""}>{t(lang, a, b)}</a>')
     links = "".join(items)
     o = OTHER[lang]
     return (f'<header id="hd"><div class="wrap nav"><a class="logo" href="{u("home", lang)}" aria-label="{NAME}, {t(lang, "inicio", "home")}">{NAME}</a>'
@@ -745,6 +751,7 @@ Sitio personal bilingüe (español e inglés), independiente de cualquier empres
     s += "\n".join(f"- {clean(a)} / {clean(b)}: {c} / {d}" for a, b, c, d in AREAS) + "\n"
     if ARTICLES:
         s += "\n## Ideas / Insights\n" + "\n".join(f"- [{a['title']}]({article_url(a)}): {a['excerpt']}" for a in ARTICLES) + "\n"
+    if IDEAS_URL: s += f"\n## Ideas / Insights\n- [Ideas / Insights]({IDEAS_URL}): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)\n"
     s += f"""
 ## Perfiles oficiales / Official profiles
 - [LinkedIn]({LINKEDIN})
@@ -825,9 +832,11 @@ def bust(html):
 def main():
     os.makedirs(OUT, exist_ok=True)
     load_articles()
+    if IDEAS_URL: ARTICLES.clear()
     build_images()
     icons_ok = icons()
     for key in PAGES:
+        if key == "ideas" and IDEAS_URL: continue
         for lang in ("es", "en"):
             body, ld = BUILDERS[key](lang)
             lcp = ("controlas", "100vw") if key == "home" else (("barcelona", "(max-width: 860px) 90vw, 420px") if key == "about" else None)
@@ -859,7 +868,14 @@ def main():
 <p><a class="btn" href="/es/">Inicio</a> <a class="btn" href="/en/">Home</a></p></main></body></html>
 '''))
     write("/robots.txt", robots()); write("/sitemap.xml", sitemap()); write("/llms.txt", llms()); write("/llms-full.txt", llms_full())
-    write("/_headers", HEADERS); write("/_redirects", "/  /es/  302\n")
+    redir = "/  /es/  302\n"
+    if IDEAS_URL: redir += f"/es/ideas/*  {IDEAS_URL}  302\n/es/ideas  {IDEAS_URL}  302\n/en/insights/*  {IDEAS_URL}  302\n/en/insights  {IDEAS_URL}  302\n"
+    write("/_headers", HEADERS); write("/_redirects", redir)
+    if IDEAS_URL:   # limpiar la salida de Ideas que ya no se publica
+        for d_ in ("es/ideas", "en/insights"): shutil.rmtree(os.path.join(OUT, d_), ignore_errors=True)
+        for f_ in ("og-ideas-es.jpg", "og-ideas-en.jpg"):
+            fp = os.path.join(OUT, "assets", "og", f_)
+            if os.path.exists(fp): os.remove(fp)
     # favicon.svg, favicon.ico y los íconos de app los genera tools/icons.py
     man = {"id": "/es/", "name": NAME, "short_name": "JA Borges",
            "description": "José Antonio Borges: líder empresarial, emprendedor y ejecutivo del sector inmobiliario.",

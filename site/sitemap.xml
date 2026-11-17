@@ -49,22 +49,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseantonioborges.com/es/ideas/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/ideas/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/insights/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/ideas/"/>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://joseantonioborges.com/en/insights/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/ideas/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://joseantonioborges.com/en/insights/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseantonioborges.com/es/ideas/"/>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://joseantonioborges.com/es/contacto/</loc>
     <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://joseantonioborges.com/es/contacto/"/>

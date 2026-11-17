@@ -8,14 +8,12 @@ Sitio personal bilingüe (español e inglés), independiente de cualquier empres
 - [José Antonio Borges | Liderazgo empresarial y real estate](https://joseantonioborges.com/es/): Conoce la trayectoria de José Antonio Borges: emprendedor y ejecutivo especializado en crecimiento empresarial y real estate en España.
 - [Sobre mí | José Antonio Borges](https://joseantonioborges.com/es/sobre-mi/): La historia de José Antonio Borges: de la inversión en Estados Unidos a fundar Hauzz y liderar compañías inmobiliarias en España.
 - [Trayectoria y resultados | José Antonio Borges](https://joseantonioborges.com/es/trayectoria/): Experiencia de José Antonio Borges en eXp Realty España, Hauzz, Rive, Tiko e inversiones en Estados Unidos.
-- [Ideas sobre real estate y negocios | José Antonio Borges](https://joseantonioborges.com/es/ideas/): Artículos y perspectivas sobre liderazgo inmobiliario, emprendimiento, operaciones, equipos y tecnología aplicada a los negocios.
 - [Contacto | José Antonio Borges](https://joseantonioborges.com/es/contacto/): Contacta con José Antonio Borges para conexiones profesionales, alianzas estratégicas, proyectos empresariales y colaboraciones.
 
 ## English
 - [José Antonio Borges | Business Leadership & Real Estate](https://joseantonioborges.com/en/): Explore José Antonio Borges's background as an entrepreneur and executive focused on business growth, leadership and real estate in Spain.
 - [About | José Antonio Borges](https://joseantonioborges.com/en/about/): José Antonio Borges's journey from investment in the United States to founding Hauzz and leading real estate businesses in Spain.
 - [Experience & Results | José Antonio Borges](https://joseantonioborges.com/en/experience/): José Antonio Borges's experience at eXp Realty Spain, Hauzz, Rive, Tiko and in US private equity.
-- [Insights on Real Estate & Business | José Antonio Borges](https://joseantonioborges.com/en/insights/): Perspectives on real estate leadership, entrepreneurship, strategy, operations, teams and the practical use of technology.
 - [Contact | José Antonio Borges](https://joseantonioborges.com/en/contact/): Connect with José Antonio Borges about business opportunities, strategic partnerships, investment networks and professional collaboration.
 
 ## Datos clave / Key facts
@@ -33,6 +31,9 @@ Sitio personal bilingüe (español e inglés), independiente de cualquier empres
 - Estrategia y excelencia operativa / Strategy and operational excellence: Procesos, rentabilidad, sistemas de gestión y toma de decisiones basada en datos. / Processes, profitability, management systems and data-driven decision-making.
 - Tecnología, IA y transformación empresarial / Technology, AI and business transformation: Aplicación práctica de tecnología e inteligencia artificial desde la perspectiva de un ejecutivo. / Practical application of technology and artificial intelligence from an executive's perspective.
 - Liderazgo comercial y desarrollo de talento / Commercial leadership and talent development: Equipos, productividad, autonomía y crecimiento de redes comerciales. / Teams, productivity, autonomy and growth of commercial networks.
+
+## Ideas / Insights
+- [Ideas / Insights](https://ideas.joseantonioborges.com): artículos y perspectivas / articles and perspectives (sitio aparte / separate site)
 
 ## Perfiles oficiales / Official profiles
 - [LinkedIn](https://www.linkedin.com/in/jose-antonio-borges-b62b48132/)

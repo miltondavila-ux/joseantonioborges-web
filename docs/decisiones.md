@@ -157,3 +157,9 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 
 ## Aviso de maqueta (2026-11-17)
 - Milton pidió **eliminar el mensaje flotante «Maqueta · …»**. `DEMO = False` en `tools/build.py`; el verificador exige que no aparezca.
+
+## Ideas → sitio aparte (decisión de Milton, 2026-11-17) ⚠ contradice el punto 7 del documento del propietario
+- El menú **«Ideas» (ES) / «Insights» (EN)** abre **https://ideas.joseantonioborges.com** en pestaña nueva: el blog hecho con la plataforma de blogs de Milton («BLOG IA»), en un sitio aparte.
+- El documento del propietario pedía Ideas **integrado** en `/es/ideas/` y `/en/insights/` y sin pestaña externa. **Debe confirmarse con el propietario.** El código del Ideas integrado (Markdown en `content/ideas/`, listado, plantilla de artículo) queda guardado y se reactiva poniendo `IDEAS_URL = ""` en `tools/build.py`.
+- Mientras `IDEAS_URL` esté definido: no se construyen las páginas internas de Ideas, no van al sitemap, y `/es/ideas/*` y `/en/insights/*` redirigen (302) al blog. El sitio indexable queda en 8 páginas.
+- Menú vigente: Inicio · Sobre mí · Trayectoria · Ideas ↗ · Contacto · ES/EN.
