@@ -22,7 +22,7 @@ Fuente: documento «José Antonio Borges — Cambios para la versión 2 de la we
 10. **Se conserva:** 5 páginas (Inicio, Sobre mí, Trayectoria, Ideas, Contacto), ES+EN, nombre, dominio previsto, «Construir. Escalar. Transformar.», independencia de eXp, trayectoria y logros, fotos originales del Drive (fase visual).
 
 **Menú vigente:** Inicio · Sobre mí · Trayectoria · Ideas · Contacto · ES/EN (todo interno).
-**Se conserva de Milton (no contradicho):** diseño v2, fotos sin repetir, logos de redes sin enlace hasta nuevo aviso, pie minimalista, QR para compartir en el menú móvil, aviso de cookies, textos legales, números de teléfono nunca visibles, cuentas (solo miltondavila-ux / Cloudflare de Milton).
+**Se conserva de Milton (no contradicho):** diseño v2, fotos sin repetir, logos de redes (ahora ya enlazados), pie minimalista, QR para compartir en el menú móvil, aviso de cookies, textos legales, números de teléfono nunca visibles, cuentas (solo miltondavila-ux / Cloudflare de Milton).
 
 ## Pendientes tras esta iteración
 - **CMS editable de Ideas** (Decap CMS u otro): requiere un OAuth de GitHub y un flujo de publicación automático (CI) con un token de Cloudflare; hoy los artículos se añaden como archivos Markdown y se despliegan con `build.py` + `wrangler deploy`.
@@ -59,7 +59,7 @@ Fuente: documento «José Antonio Borges — Cambios para la versión 2 de la we
 - Ventana de conexión: **fondo azul, QR y letras en blanco**.
 - Botón QR en el encabezado (escritorio, «Pásalo a móvil»).
 - Menú hamburguesa (móvil): enlaces + **QR para compartir** + selector de idioma + logos de redes.
-- **Logos de LinkedIn e Instagram: visibles pero NO clicables hasta nuevo aviso** (en pie y menú). Se activan rellenando `LINKEDIN` / `INSTAGRAM` en `tools/build.py`.
+- ~~Logos de LinkedIn e Instagram sin enlace~~ → **ACTIVADOS el 2026-11-17** (ver «Redes»).
 - Footer **minimalista**: © + avisos legales + logos.
 
 ## SEO / AEO (al 100 %)
@@ -143,3 +143,9 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 ## Favicon e íconos de app (auditoría SEO READY)
 - Generados con `python3 tools/icons.py`: `favicon.svg`, `favicon.ico` (16/32/48) y `apple-touch-icon.png` (180) en la raíz; `icon-32/180/192/512` y `icon-maskable-512` (con margen de seguridad) en `assets/icons/`. Monograma «JB» con anillo, azul noche y papel hueso.
 - Manifest con `id`, `scope`, `short_name` «JA Borges», iconos `any` y `maskable` separados y accesos directos a Contacto y Trayectoria.
+
+## Redes (dadas por Milton, 2026-11-17) — reemplaza la regla «logos sin enlace hasta nuevo aviso»
+- **LinkedIn:** https://www.linkedin.com/in/jose-antonio-borges-b62b48132/
+- **Instagram:** https://www.instagram.com/j.a.borges87
+- Se muestran como logos-enlace en el **pie** y en el **menú móvil**, y en **Contacto** («Sígueme en LinkedIn e Instagram»). Abren en pestaña nueva (`rel="me noopener noreferrer"`). Alimentan `sameAs` del JSON-LD de `Person` y la sección «Perfiles oficiales» de `llms.txt`. Constantes `LINKEDIN` / `INSTAGRAM` en `tools/build.py`.
+- El aviso de maqueta ya solo menciona el correo de destino del formulario (lo único de «datos de ejemplo» que queda).

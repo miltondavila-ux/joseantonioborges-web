@@ -420,3 +420,10 @@ html.consent-open .note{bottom:calc(var(--cb-h,0px) + 14px)}
 .cside a{border-bottom:1px solid currentColor}
 
 .h2s{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:400;letter-spacing:-.02em;margin-bottom:26px}
+
+/* redes: ahora son enlaces */
+.soc a{display:inline-flex;width:34px;height:34px;border:1px solid #3a3730;border-radius:50%;align-items:center;justify-content:center;color:#8e897d;transition:.2s}
+.soc a:hover{color:#fff;border-color:#fff}
+.soc svg{width:15px;height:15px;fill:currentColor}
+header.menu .soc a{border-color:#3a4866;color:#aeb8cc}
+.cside a[rel~=me]{border-bottom:1px solid currentColor}

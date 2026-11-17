@@ -17,8 +17,8 @@ LASTMOD = "2026-11-16"
 UPDATED = {"es": "16 de noviembre de 2026", "en": "16 November 2026"}
 DEMO = True      # True = muestra el aviso "datos de ejemplo". Poner False al publicar con datos reales
 NAME = "José Antonio Borges"
-LINKEDIN = ""    # PENDIENTE: URL real. Si se rellena, se añade a sameAs y al pie
-INSTAGRAM = ""   # PENDIENTE: URL real
+LINKEDIN = "https://www.linkedin.com/in/jose-antonio-borges-b62b48132/"   # perfil público (dado por Milton, 2026-11-17)
+INSTAGRAM = "https://www.instagram.com/j.a.borges87"   # perfil público (dado por Milton, 2026-11-17)
 
 OG_ALT = {
  "home": ("Construir. Escalar. Transformar. José Antonio Borges, ejecutivo y emprendedor del sector inmobiliario, en el escenario", "Build. Scale. Transform. José Antonio Borges, executive and real estate entrepreneur, on stage"),
@@ -257,7 +257,7 @@ def header(lang, key, switch=None):
 def footer(lang):
     soc = ""
     for ic, nm, url in ((IC_LI, "LinkedIn", LINKEDIN), (IC_IG, "Instagram", INSTAGRAM)):
-        if url: soc += f'<a href="{url}" rel="me noopener" target="_blank" aria-label="{nm}" style="display:inline-flex;width:34px;height:34px;border:1px solid #3a3730;border-radius:50%;align-items:center;justify-content:center;color:#8e897d">{ic}</a>'
+        if url: soc += f'<a href="{url}" rel="me noopener noreferrer" target="_blank" aria-label="{nm} ({t(lang, "se abre en una pestaña nueva", "opens in a new tab")})" title="{nm}">{ic}</a>'
         else:   soc += f'<span role="img" aria-label="{nm} ({t(lang, "próximamente", "coming soon")})" title="{t(lang, "Próximamente", "Coming soon")}">{ic}</span>'
     legal = '<span class="fl">' + "".join(f'<a href="{u(k, lang)}">{t(lang, a_, b_)}</a>' for k, a_, b_ in (("legal", "Aviso legal", "Legal notice"), ("privacy", "Privacidad", "Privacy"), ("terms", "Términos", "Terms"), ("cookies", "Cookies", "Cookies"))) + '</span>'
     return f'<footer><div class="wrap"><span>© 2026 {NAME}</span>{legal}<div class="soc">{soc}</div></div></footer>'
@@ -351,7 +351,7 @@ def page(key, lang, body, extra_ld, lcp=None, og="og/og-home-es", meta=None, url
 {body}
 </main>
 {footer(lang)}
-{f'<div class="note">{t(lang, "Maqueta · datos de ejemplo (correo de destino del formulario y redes pendientes)", "Mockup · sample data (form recipient email and social pending)")}</div>' if DEMO else ""}
+{f'<div class="note">{t(lang, "Maqueta · el correo de destino del formulario está pendiente de configurar", "Mockup · the form recipient email is pending setup")}</div>' if DEMO else ""}
 <script src="/assets/qrcode.min.js"></script>
 <script src="/assets/kit.js"></script>
 <script src="/assets/consent.js"></script>
@@ -667,7 +667,7 @@ def contact(lang):
   <button class="btn fbtn" type="submit">{L("Enviar mensaje", "Send message")}</button>
   <p class="fmsg" role="status" aria-live="polite" id="fmsg"></p>
  </form></div>
- <aside class="cside"><p class="kick">{L("También", "Also")}</p><p>{L("LinkedIn e Instagram, próximamente.", "LinkedIn and Instagram, coming soon.")}</p>
+ <aside class="cside"><p class="kick">{L("También", "Also")}</p><p>{L("Sígueme en", "Follow me on")} <a href="{LINKEDIN}" target="_blank" rel="me noopener noreferrer">LinkedIn</a> {L("e", "and")} <a href="{INSTAGRAM}" target="_blank" rel="me noopener noreferrer">Instagram</a>.</p>
  <p class="fnote">{L("Los datos que facilites se usan solo para responderte. Más información en la", "The data you provide is used only to reply to you. More information in the")} <a href="{u("privacy", lang)}">{L("Política de privacidad", "Privacy policy")}</a>.</p></aside>
 </div></section>'''
     ld = [{"@type": "ContactPage", "@id": abs_u("contact", lang) + "#page", "url": abs_u("contact", lang), "name": META["contact"][lang][0], "description": META["contact"][lang][1], "inLanguage": lang, "isPartOf": {"@id": DOMAIN + "/#web"}, "about": {"@id": DOMAIN + "/#persona"}},
@@ -746,6 +746,10 @@ Sitio personal bilingüe (español e inglés), independiente de cualquier empres
     if ARTICLES:
         s += "\n## Ideas / Insights\n" + "\n".join(f"- [{a['title']}]({article_url(a)}): {a['excerpt']}" for a in ARTICLES) + "\n"
     s += f"""
+## Perfiles oficiales / Official profiles
+- [LinkedIn]({LINKEDIN})
+- [Instagram]({INSTAGRAM})
+
 ## Optional
 - [llms-full.txt]({DOMAIN}/llms-full.txt): contenido completo del sitio en texto / full site content in plain text.
 """

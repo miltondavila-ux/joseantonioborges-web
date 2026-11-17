@@ -34,5 +34,9 @@ Sitio personal bilingüe (español e inglés), independiente de cualquier empres
 - Tecnología, IA y transformación empresarial / Technology, AI and business transformation: Aplicación práctica de tecnología e inteligencia artificial desde la perspectiva de un ejecutivo. / Practical application of technology and artificial intelligence from an executive's perspective.
 - Liderazgo comercial y desarrollo de talento / Commercial leadership and talent development: Equipos, productividad, autonomía y crecimiento de redes comerciales. / Teams, productivity, autonomy and growth of commercial networks.
 
+## Perfiles oficiales / Official profiles
+- [LinkedIn](https://www.linkedin.com/in/jose-antonio-borges-b62b48132/)
+- [Instagram](https://www.instagram.com/j.a.borges87)
+
 ## Optional
 - [llms-full.txt](https://joseantonioborges.com/llms-full.txt): contenido completo del sitio en texto / full site content in plain text.

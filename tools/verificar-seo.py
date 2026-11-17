@@ -125,7 +125,7 @@ for url in sorted(allp):
         for x in g:
             if x["@type"] == "Person":
                 for k in ("name", "url", "jobTitle", "worksFor", "alumniOf"): ok(k in x, f"{n}: Person sin {k}")
-                ok("sameAs" not in x or all(v.startswith("http") for v in x["sameAs"]), f"{n}: sameAs inválido")
+                ok(set(x.get("sameAs", [])) == {"https://www.linkedin.com/in/jose-antonio-borges-b62b48132/", "https://www.instagram.com/j.a.borges87"}, f"{n}: sameAs debe ser LinkedIn e Instagram")
             if x["@type"] == "FAQPage":
                 body = open(pages[url], encoding="utf-8").read()
                 for q in x["mainEntity"]:
