@@ -96,3 +96,8 @@ Teléfono/WhatsApp reales · correo · URLs de LinkedIn e Instagram · dominio �
 4. **Íconos para instalar como app en el móvil:** manifest, `apple-touch-icon` (iPhone), íconos 192/512 y *maskable* (Android), `theme-color`, nombre de la app. Probar «Añadir a pantalla de inicio».
 5. **Favicon:** SVG + PNG 32 + `.ico` en la raíz; que se vea bien en pestañas claras y oscuras.
 Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y los verificadores actualizados.
+
+## Cuentas (regla de Milton, 2026-11-16)
+- **Todo se sube a la cuenta de GitHub `miltondavila-ux`** y al Cloudflare de «correo privado de la cuenta». No tiene nada que ver con `10minuteswebsite` ni con otras cuentas.
+- Al usar `gh`: `GH_TOKEN="$(gh auth token --user miltondavila-ux)"` y comprobar que `gh api user --jq .login` sea `miltondavila-ux`; no cambiar la cuenta activa global.
+- En Cloudflare, al conectar GitHub, enlazar `miltondavila-ux`; **nunca** elegir `10minuteswebsite` en el selector.
