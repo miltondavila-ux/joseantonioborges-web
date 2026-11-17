@@ -148,7 +148,8 @@ for lg in ("es", "en"):
 # ---------- no mezclar con la v1; diseño v2; aviso; legales; cookies
 for bad in (".portrait{", ".facts{", ".fact b", ".tag{", ".cards{", ".b1{", ".cta-s"): ok(bad not in css, f"CSS: aparece un resto de la v1 ({bad})")
 ok("Newsreader" in rd("/es/index.html") and "#F4F0E8" in css, "Diseño v2: serif Newsreader y papel hueso")
-ok('class="note"' in rd("/es/index.html"), "Falta el aviso de maqueta")
+for pg_ in ("/es/", "/en/", "/es/contacto/"):
+    ok('class="note"' not in rd(pg_ + "index.html") and "data-demo" not in rd(pg_ + "index.html"), f"{pg_}: el aviso flotante de maqueta fue eliminado por pedido de Milton")
 for p in LEGAL: ok(os.path.exists(R + p + "index.html"), f"falta {p}")
 for p in ("/es/privacidad/", "/en/privacy/"):
     tx = vis(rd(p + "index.html")).lower()

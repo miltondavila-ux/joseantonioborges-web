@@ -15,7 +15,7 @@ STAGING = "--staging" in sys.argv
 DOMAIN = "https://joseantonioborges.com"      # PENDIENTE: confirmar y registrar
 LASTMOD = "2026-11-16"
 UPDATED = {"es": "16 de noviembre de 2026", "en": "16 November 2026"}
-DEMO = True      # True = muestra el aviso "datos de ejemplo". Poner False al publicar con datos reales
+DEMO = False     # True = muestra el aviso flotante de maqueta. Quitado a pedido de Milton (2026-11-17)
 NAME = "José Antonio Borges"
 LINKEDIN = "https://www.linkedin.com/in/jose-antonio-borges-b62b48132/"   # perfil público (dado por Milton, 2026-11-17)
 INSTAGRAM = "https://www.instagram.com/j.a.borges87"   # perfil público (dado por Milton, 2026-11-17)

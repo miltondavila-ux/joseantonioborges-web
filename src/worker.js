@@ -4,11 +4,13 @@
 //   (opcional: Turnstile si se define TURNSTILE_SECRET, y un binding RATE_LIMITER).
 // - El correo de destino es PRIVADO: vive solo en variables/secretos de Cloudflare (CONTACT_TO), nunca en el código ni en la web.
 //
-// Configuración necesaria para que el envío funcione (una sola vez):
-//   npx wrangler secret put RESEND_API_KEY     # clave de la API de Resend (u otro proveedor; ver sendMail)
-//   npx wrangler secret put CONTACT_TO         # correo privado que recibirá los mensajes
-//   npx wrangler secret put CONTACT_FROM       # remitente verificado, p. ej. "Web José Antonio Borges <web@joseantonioborges.com>"
-// Mientras falte algo de lo anterior, /api/contact responde 503 {code:"not_configured"} y la web lo explica.
+// Configuración (secretos de Cloudflare; NUNCA en el código):
+//   CONTACT_TO         correo privado que recibe los mensajes                       -> YA CONFIGURADO
+//   RESEND_API_KEY     clave de la API de Resend (cuenta creada con el correo que recibirá los mensajes)  -> PENDIENTE
+//   CONTACT_FROM       (opcional) remitente verificado, p. ej. "Web José Antonio Borges <web@dominio>".
+//                      Si falta se usa el remitente de pruebas de Resend (onboarding@resend.dev), que SOLO entrega
+//                      al correo de la cuenta de Resend; con el dominio verificado se podrá enviar a cualquier correo.
+// Mientras falte RESEND_API_KEY, /api/contact responde 503 {code:"not_configured"} y la web lo explica.
 
 const REASONS = { negocio: "Oportunidad empresarial", alianza: "Alianza", inversion: "Inversión", medios: "Medios o eventos", otro: "Otro" };
 const RETURN_PATH = { es: "/es/contacto/", en: "/en/contact/" };
@@ -58,13 +60,13 @@ async function handleContact(request, env, url) {
   }
 
   if (env.DELIVERY_MODE === "test") return wantsJson ? json({ ok: true, test: true }) : back("?enviado=1"); // solo para pruebas locales
-  if (!(env.RESEND_API_KEY && env.CONTACT_TO && env.CONTACT_FROM)) return fail(503, "not_configured", "?error=nc");
+  if (!(env.RESEND_API_KEY && env.CONTACT_TO)) return fail(503, "not_configured", "?error=nc");
 
-  const text = `Nuevo mensaje desde la web\n\nNombre: ${name}\nCorreo: ${email}\nEmpresa / organización: ${company || "—"}\nMotivo: ${REASONS[reason]}\nIdioma: ${lang}\n\n${message}\n`;
+  const text = `Nuevo mensaje desde la web\n\nFecha: ${new Date().toISOString()}\nNombre: ${name}\nCorreo: ${email}\nEmpresa / organización: ${company || "—"}\nMotivo: ${REASONS[reason]}\nIdioma: ${lang}\n\n${message}\n`;
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ from: env.CONTACT_FROM, to: [env.CONTACT_TO], reply_to: email, subject: `[Web] ${REASONS[reason]} — ${name}`, text }),
+    body: JSON.stringify({ from: env.CONTACT_FROM || "Web José Antonio Borges <onboarding@resend.dev>", to: [env.CONTACT_TO], reply_to: email, subject: `[Web] ${REASONS[reason]} — ${name}`, text }),
   });
   if (!res.ok) return fail(502, "delivery_failed", "?error=err");
   return wantsJson ? json({ ok: true }) : back("?enviado=1");

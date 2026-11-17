@@ -149,3 +149,11 @@ Entregable: informe con lo encontrado, lo corregido y lo que queda pendiente, y 
 - **Instagram:** https://www.instagram.com/j.a.borges87
 - Se muestran como logos-enlace en el **pie** y en el **menú móvil**, y en **Contacto** («Sígueme en LinkedIn e Instagram»). Abren en pestaña nueva (`rel="me noopener noreferrer"`). Alimentan `sameAs` del JSON-LD de `Person` y la sección «Perfiles oficiales» de `llms.txt`. Constantes `LINKEDIN` / `INSTAGRAM` en `tools/build.py`.
 - El aviso de maqueta ya solo menciona el correo de destino del formulario (lo único de «datos de ejemplo» que queda).
+
+## Formulario: correo de destino (2026-11-17)
+- Los mensajes del formulario deben llegar al **correo corporativo de José Antonio** (indicado por Milton). Está guardado como **secreto `CONTACT_TO`** del Worker en Cloudflare; **no figura en el código, el repo ni la web** (el correo no se muestra públicamente).
+- El correo recibido incluye: fecha, nombre, correo (como «responder a»), empresa/organización, motivo, idioma y mensaje.
+- **Falta para que envíe:** `RESEND_API_KEY` (cuenta de Resend creada con ese mismo correo; con el remitente de pruebas solo entrega a ese correo). Con el dominio verificado se añade `CONTACT_FROM` y se puede usar un remitente propio.
+
+## Aviso de maqueta (2026-11-17)
+- Milton pidió **eliminar el mensaje flotante «Maqueta · …»**. `DEMO = False` en `tools/build.py`; el verificador exige que no aparezca.
